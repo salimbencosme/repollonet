@@ -1,24 +1,42 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Nav from '../components/Nav';
+import News from '../components/News';
+import Post from '../components/Post';
+import { Grid, Row, Col } from 'react-bootstrap';
 
+class Main extends Component {
 
-class Main extends Component{
+    render() {
 
-    render(){
-
-        return(
+        return (
 
             <div>
-                <Nav classparam="nav-bar-background" />
+                <Nav classparam="nav-bar-style-blue" />
+                <br/>
+                <br/>
+                <Grid>
+                    <Row className="show-grid">
+                        <Col xs={12} md={8}>
+                            <Post/> 
+                        </Col>
+                        <Col xs={6} md={4}>
+                            <div className="panelNews">
+                                <News/>
+                            </div>
+                         
+                         
+                        </Col>
+                    </Row>
 
-                <h1>DEDE AQUI BROTHER</h1>
-            </div>    
+                </Grid>
 
-        );
+            </div>
 
-    }
-
-
-}
+                );
+        
+            }
+        
+        
+        }
 export default Main;
