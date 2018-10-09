@@ -70,6 +70,12 @@ body {
     margin-top: 28px;
 }
 
+.our-services-img:hover{
+    background: #ffffffc4 none repeat scroll 0 0;
+    border: 2px solid transparent;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
 .our-services-text {
     padding-right: 10px;
 }
@@ -100,7 +106,8 @@ body {
 }
 
 .our-services-wrapper:hover .services-inner {
-    background: #fff none repeat scroll 0 0;
+    
+    background: #ffffffc4 none repeat scroll 0 0;
     border: 2px solid transparent;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
 }

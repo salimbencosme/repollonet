@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 
+import PostDetails from '../components/PostDetails';
 
 class Post extends Component {
 
@@ -12,6 +13,7 @@ class Post extends Component {
     render() {
         return (
             <div>
+                <PostDetails />
               <br/>
               <br/>
                 <Grid>
