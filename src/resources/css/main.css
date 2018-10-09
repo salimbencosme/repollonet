@@ -1,5 +1,7 @@
 body {
     background-color: #eceff1;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .nav-bar-style-orange {
@@ -229,4 +231,34 @@ ul#menu li {
     color: white;
 }
 
+
+.div-container-scroll{
+    overflow: auto;
+    height: 100vh;
+}
+
 /*END POST*/
+
+
+/*SCROLL BAR STYLE*/
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #eceff1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #eceff1; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #eceff1; 
+}
+
+/*END SCROLL BAR STYLE*/

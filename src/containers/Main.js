@@ -17,10 +17,10 @@ class Main extends Component {
                 <br/>
                 <Grid>
                     <Row className="show-grid">
-                        <Col xs={12} md={8}>
+                        <Col xs={8} md={8}>
                             <Post/> 
                         </Col>
-                        <Col xs={6} md={4}>
+                        <Col xs={4} md={4}>
                             <div className="panelNews">
                                 <News/>
                             </div>
