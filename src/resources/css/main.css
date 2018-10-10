@@ -262,3 +262,23 @@ ul#menu li {
 }
 
 /*END SCROLL BAR STYLE*/
+
+
+
+/*DETAILS*/
+
+.white-card-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+    color: black;
+    background: white;
+    height: 100vh;
+}
+
+.img-details{
+    width: 100%;
+    height: 250px;
+}
+
+/*END DETAILS*/

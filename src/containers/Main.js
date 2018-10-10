@@ -18,7 +18,9 @@ class Main extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={8} md={8}>
-                            <Post/> 
+
+                        {this.props.children}
+                            
                         </Col>
                         <Col xs={4} md={4}>
                             <div className="panelNews">
