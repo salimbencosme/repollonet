@@ -1,3 +1,55 @@
+:root {
+  /*DEFAULT COLOR    */
+  
+  --theme-primary-color:#039be5;
+    --theme-second-color:#028ad3;
+    --theme-third-color:#0394dea3;
+    --theme-fourth-color:rgb(2, 131, 200);
+    --theme-fith-color:#48c7ec;
+    --theme-sixth-color:black;
+ 
+
+    /*PURPLE COLOR   
+    --theme-primary-color:#ab60b8;
+    --theme-second-color:#9637a7;
+    --theme-third-color:#ab60b8;
+    --theme-fourth-color:#76018a;
+    --theme-fith-color:#ab60b8;
+    --theme-sixth-color:black;
+ */
+
+
+     /*YELLOW COLOR  
+    --theme-primary-color:#ebb206;
+    --theme-second-color:#daa70c;
+    --theme-third-color:#ebb206;
+    --theme-fourth-color:#8e6e0d;
+    --theme-fith-color:#ebb206;
+    --theme-sixth-color:black;
+  */
+    
+    
+     /*GREEN COLOR 
+    --theme-primary-color:#b2bf2d;
+    --theme-second-color:#a6b511;
+    --theme-third-color:#b2bf2d;
+    --theme-fourth-color:#768204;
+    --theme-fith-color:#b2bf2d;
+    --theme-sixth-color:black;
+   
+ */
+
+    /*BLUE COLOR    
+    --theme-primary-color:#394aa5;
+    --theme-second-color:#5f75ec;
+    --theme-third-color:#394aa5;
+    --theme-fourth-color:#000d54;
+    --theme-fith-color:#394aa5;
+    --theme-sixth-color:white;
+ */
+    
+  }
+
 body {
     background-color: #eceff1;
     overflow-x: hidden;
@@ -10,7 +62,7 @@ body {
 }
 
 .nav-bar-style-blue {
-    background: #039be5;
+    background: var(--theme-primary-color);
     color: #9dd9f5;
 }
 
@@ -24,7 +76,7 @@ body {
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: white;
-    background: #028ad3 !important;
+    background: var(--theme-second-color) !important;
     text-transform: uppercase;
 }
 
@@ -33,14 +85,14 @@ body {
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-    background-color: #028ad3;
+    background-color: var(--theme-second-color);
     text-transform: uppercase;
     color: white;
 }
 
 .panelNews {
     background: red;
-    background: #0394dea3;
+    background: var(--theme-third-color);
     padding: 5px;
     height: 100vh;
     width: 104.5%
@@ -57,7 +109,7 @@ body {
 }
 
 .services-inner {
-    border: 2px solid #48c7ec;
+    border: 2px solid var(--theme-fith-color);
     margin-left: 35px;
     transition: .3s;
     background: #fff none repeat scroll 0 0;
@@ -132,7 +184,7 @@ p {
     margin-bottom: 20px;
     padding: 6px;
     color: white;
-    box-shadow: 0px 5px 10px 1px rgb(2, 131, 200);
+    box-shadow: 0px 5px 10px 1px var(--theme-fourth-color);
 }
 
 ul#menu li {
@@ -156,14 +208,15 @@ ul#menu li {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #028ad3;
+    background-color: var(--theme-second-color);
     border-radius: 10px;
     margin-right: 10px;
 }
 
 .badge-name {
     text-transform: uppercase;
-    font-size: 11px
+    font-size: 11px;
+    color:var(--theme-sixth-color);
 }
 
 /*END NEWS*/
