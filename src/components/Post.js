@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import themeHandler from '../common/ThemeHandler';
 
 class Post extends Component {
 
@@ -8,6 +9,9 @@ class Post extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        themeHandler("default");
+    }
 
 
     render() {
