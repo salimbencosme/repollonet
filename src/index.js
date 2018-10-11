@@ -16,7 +16,7 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/post" component={Post} />
-            <Route path="/details" component={PostDetails} />
+            <Route path="/details/:typecontent" component={PostDetails} />
             <Route name="wrong-url" component={AppDefault} />
         </Switch>
         </Main>
