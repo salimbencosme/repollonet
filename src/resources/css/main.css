@@ -334,4 +334,8 @@ ul#menu li {
     height: 250px;
 }
 
+a:hover {
+    text-decoration: none !important;
+}
+
 /*END DETAILS*/
