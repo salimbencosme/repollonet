@@ -12,15 +12,18 @@ class Nav extends Component {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Repollo.net</a>
+          <a className="navbar-brand" href="./">Repollo.net</a>
         </div>
         <div id="navbar" className="navbar-collapse collapse">
       
           <ul className="nav navbar-nav navbar-right">
-          <li><a href="../navbar/">Read all</a></li>
-            <li><a href="../navbar/">Tips</a></li>
-            <li><a href="../navbar/">Did you know?</a></li>
-            <li><a href="../navbar-static-top/">Recipes</a></li>
+          <li><a href="./post">Read all</a></li>
+            <li><a href="./post">Tips</a></li>
+            <li><a href="./post">Did you know?</a></li>
+            <li><a href="./post">Recipes</a></li>
+            <li><a href="./about">About us</a></li>
+            <li><a href="./post">Subscribe</a></li>
+            <li><a href="./post">Contact us</a></li>
             <li className="active"><a href="./">Welcome! <span className="sr-only">(current)</span></a></li>
           </ul>
         </div>

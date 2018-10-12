@@ -8,8 +8,8 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostDetails from '../src/components/PostDetails';
 import AppDefault from './AppDefault';
+import About from './components/About';
 import './resources/css/main.css';
-
 ReactDOM.render(
     <Router>
         <Main>
@@ -17,6 +17,7 @@ ReactDOM.render(
             <Route exact path="/" component={App} />
             <Route path="/post" component={Post} />
             <Route path="/details/:typecontent" component={PostDetails} />
+            <Route path="/about" component={About} />
             <Route name="wrong-url" component={AppDefault} />
         </Switch>
         </Main>
