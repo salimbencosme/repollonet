@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostDetails from '../src/components/PostDetails';
 import AppDefault from './AppDefault';
 import About from './components/About';
+import Contact from './components/Contact';
 import './resources/css/main.css';
 ReactDOM.render(
     <Router>
@@ -18,6 +19,7 @@ ReactDOM.render(
             <Route path="/post" component={Post} />
             <Route path="/details/:typecontent" component={PostDetails} />
             <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
             <Route name="wrong-url" component={AppDefault} />
         </Switch>
         </Main>
