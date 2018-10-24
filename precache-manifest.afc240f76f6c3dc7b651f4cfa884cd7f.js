@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/repollonet/static/js/runtime~main.9f7cb4b9.js"
   },
   {
-    "revision": "49c1a52c963f4ebbd879",
-    "url": "/repollonet/static/js/main.49c1a52c.chunk.js"
+    "revision": "44e1c509ae51f8946941",
+    "url": "/repollonet/static/js/main.44e1c509.chunk.js"
   },
   {
     "revision": "8066df06a31c44d8ce45",
     "url": "/repollonet/static/js/1.8066df06.chunk.js"
   },
   {
-    "revision": "49c1a52c963f4ebbd879",
-    "url": "/repollonet/static/css/main.72d5a505.chunk.css"
+    "revision": "44e1c509ae51f8946941",
+    "url": "/repollonet/static/css/main.69a6b924.chunk.css"
   },
   {
-    "revision": "f3df218e4f59b51cabe3d2781974ecd4",
+    "revision": "689163a6b65e8c60133eb8c9de8a4df7",
     "url": "/repollonet/index.html"
   }
 ];
