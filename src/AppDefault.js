@@ -14,8 +14,9 @@ class AppDefault extends Component {
   render() {
     return (
       <div>
-        <h1>Your enter to a wrong url.</h1>
-        <Link to="/">Go to the main</Link>
+        <Link to="/">
+        <img className="img-welcome" src="http://www.zinavo-demo.in/wrong-url.jpg" />
+        </Link>
       </div>
     );
   }

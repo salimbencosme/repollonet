@@ -15,9 +15,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>This is the main page to welcome the app and tell the people  what the app does.</h1>
-        <Link to="/post">Post</Link>
+      <div> 
+        <Link to="/post">
+        <img className="img-welcome" src="https://pulmonaryfibrosisnews.com/forums/wp-content/uploads/2018/06/welcome.jpg" />
+        </Link>
       </div>
     );
   }

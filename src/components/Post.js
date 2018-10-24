@@ -18,7 +18,6 @@ class Post extends Component {
         return (
             <div class="div-container-scroll">
                 <br />
-                <br />
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={4} md={4}>
