@@ -1,14 +1,14 @@
 {
-  "main.css": "/repollonet/static/css/main.69a6b924.chunk.css",
-  "main.js": "/repollonet/static/js/main.44e1c509.chunk.js",
-  "main.js.map": "/repollonet/static/js/main.44e1c509.chunk.js.map",
-  "static/js/1.8066df06.chunk.js": "/repollonet/static/js/1.8066df06.chunk.js",
-  "static/js/1.8066df06.chunk.js.map": "/repollonet/static/js/1.8066df06.chunk.js.map",
+  "main.css": "/repollonet/static/css/main.f70e17b0.chunk.css",
+  "main.js": "/repollonet/static/js/main.3e5b7d54.chunk.js",
+  "main.js.map": "/repollonet/static/js/main.3e5b7d54.chunk.js.map",
+  "static/js/1.c00496de.chunk.js": "/repollonet/static/js/1.c00496de.chunk.js",
+  "static/js/1.c00496de.chunk.js.map": "/repollonet/static/js/1.c00496de.chunk.js.map",
   "runtime~main.js": "/repollonet/static/js/runtime~main.9f7cb4b9.js",
   "runtime~main.js.map": "/repollonet/static/js/runtime~main.9f7cb4b9.js.map",
   "static/media/logo.svg": "/repollonet/static/media/logo.5d5d9eef.svg",
-  "static/css/main.69a6b924.chunk.css.map": "/repollonet/static/css/main.69a6b924.chunk.css.map",
+  "static/css/main.f70e17b0.chunk.css.map": "/repollonet/static/css/main.f70e17b0.chunk.css.map",
   "index.html": "/repollonet/index.html",
-  "precache-manifest.afc240f76f6c3dc7b651f4cfa884cd7f.js": "/repollonet/precache-manifest.afc240f76f6c3dc7b651f4cfa884cd7f.js",
+  "precache-manifest.3e897fd7aca05d8022284e8e6cd16420.js": "/repollonet/precache-manifest.3e897fd7aca05d8022284e8e6cd16420.js",
   "service-worker.js": "/repollonet/service-worker.js"
 }
