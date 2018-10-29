@@ -1,10 +1,70 @@
 import React, {Component} from 'react';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import {saveSubscribe} from '../common/ApiServices';
+import {currentDateWithFormat} from '../common/Utils';
 
 class Subscribe extends Component{
 
     constructor(props){
         super(props);
+        this.state = {
+            email: ''
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
+    handleChange(event){
+        this.setState(
+            {
+                email: (event.target.id === 'email') ? event.target.value : this.state.email
+            }
+        );
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        let info =   {
+            date_created: currentDateWithFormat(),
+            email: this.state.email
+        }
+
+        try{
+            saveSubscribe(info);
+            this.setState(
+                {
+                    email: ''
+                }
+            );
+    
+            NotificationManager.success('Successfully subscribed');   
+        }catch(e){
+            NotificationManager.error('Could not save the information');
+        }
+    
+    }
+
+    getCurrentDateWithFormat() {
+        let dateCustom = new Date();
+        let day = dateCustom.getDate();
+        let month = dateCustom.getUTCMonth() + 1;
+        let year = dateCustom.getUTCFullYear();
+        let hours = dateCustom.getUTCHours();
+        let minutes = dateCustom.getUTCMinutes();
+        let seconds = dateCustom.getUTCMinutes();
+
+        if (day < 10) { day = '0' + day; }
+
+        if (month < 10) { month = '0' + month; }
+
+        return day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+
+    }
+
 
 
     render(){
@@ -14,7 +74,7 @@ class Subscribe extends Component{
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-12 col-lg-12 pb-5">
 
-                        <form action="mail.php" method="post">
+                        <form onSubmit={this.handleSubmit}>
                             <div class="card-contact border-primary rounded-0">
                                 <div class="card-header p-0">
                                     <div class="bg-info text-white text-center py-2">
@@ -25,6 +85,7 @@ class Subscribe extends Component{
 
 
                                 <div class="card-body p-3">
+                                
                                     <center>
                     
                                     <div class="form-group">
@@ -32,7 +93,7 @@ class Subscribe extends Component{
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                             </div>
-                                            <input type="email" class="form-control" id="nombre" name="email" placeholder="example@gmail.com" required />
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" value={this.state.email} onChange={this.handleChange} required />
                                         </div>
                                     </div>
 
@@ -54,7 +115,7 @@ class Subscribe extends Component{
 
 
 
-
+ <NotificationContainer />
 
 
         </div>

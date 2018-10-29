@@ -5,6 +5,7 @@ import News from '../components/News';
 import Post from '../components/Post';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+
 class Main extends Component {
 
     render() {

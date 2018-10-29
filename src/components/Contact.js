@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-
-
+import {saveContact} from '../common/ApiServices';
+import {currentDateWithFormat} from '../common/Utils';
 
 class Contact extends Component {
 
@@ -33,56 +33,30 @@ class Contact extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        fetch('https://repollonet-74f4c.firebaseio.com/contact.json', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(
+        let info = {
+            content: this.state.content,
+            date_created: currentDateWithFormat(),
+            email: this.state.email,
+            fullname: this.state.fullname,
+            title: this.state.title
+        }
+
+        try{
+            saveContact(info);
+            this.setState(
                 {
-                    content: this.state.content,
-                    date_created: this.getCurrentDateWithFormat(),
-                    email: this.state.email,
-                    fullname: this.state.fullname,
-                    title: this.state.title
+                    fullname: '',
+                    email: '',
+                    title: '',
+                    content: ''
                 }
-            )
-        }).then(res => res.json())
-            .then(res => console.log(res));
-
+            );
+            NotificationManager.success('Message sent succesfully');      
+        }catch(e){
+            NotificationManager.error('Could not save the information');
+        }
       
-        this.setState(
-            {
-                fullname: '',
-                email: '',
-                title: '',
-                content: ''
-            }
-        );
-
-        NotificationManager.success('Message sent succesfully');
-
-
-      
-    }
-
-
-    getCurrentDateWithFormat() {
-        let dateCustom = new Date();
-        let day = dateCustom.getDate();
-        let month = dateCustom.getUTCMonth() + 1;
-        let year = dateCustom.getUTCFullYear();
-        let hours = dateCustom.getUTCHours();
-        let minutes = dateCustom.getUTCMinutes();
-        let seconds = dateCustom.getUTCMinutes();
-
-        if (day < 10) { day = '0' + day; }
-
-        if (month < 10) { month = '0' + month; }
-
-        return day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
-
+    
     }
 
     render() {
