@@ -11,6 +11,7 @@ import AppDefault from './AppDefault';
 import About from './components/About';
 import Contact from './components/Contact';
 import Subscribe from './components/Subscribe';
+import Donate from './components/Donate';
 import './resources/css/main.css';
 ReactDOM.render(
     <Router>
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/subscribe" component={Subscribe} />
+            <Route path="/donate" component={Donate} />
             <Route name="wrong-url" component={AppDefault} />
         </Switch>
         </Main>

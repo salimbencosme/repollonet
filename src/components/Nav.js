@@ -22,6 +22,7 @@ class Nav extends Component {
             <li><a href="./post">Did you know?</a></li>
             <li><a href="./post">Recipes</a></li>
             <li><a href="./about">About us</a></li>
+            <li><a href="./donate">Donate</a></li>
             <li><a href="./subscribe">Subscribe</a></li>
             <li><a href="./contact">Contact us</a></li>
             <li className="active"><a href="./">Welcome! <span className="sr-only">(current)</span></a></li>
