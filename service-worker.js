@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/repollonet/precache-manifest.e4ed1483bfbb31162dc93b95bf31a11e.js"
+  "/repollonet/precache-manifest.a9ac1e70b3293bfceae3a82fec2447eb.js"
 );
 
 workbox.clientsClaim();
