@@ -4,6 +4,8 @@ import 'react-notifications/lib/notifications.css';
 import {saveContact} from '../common/ApiServices';
 import {currentDateWithFormat} from '../common/Utils';
 
+import {countPost} from '../common/ApiServices';
+
 class Contact extends Component {
 
     constructor(props) {
@@ -17,6 +19,10 @@ class Contact extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+        countPost();
     }
 
     handleChange(event) {

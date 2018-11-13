@@ -1,3 +1,5 @@
+import fire from './fire';
+
 export function saveContact(contactParam) {
 
     fetch('https://repollonet-74f4c.firebaseio.com/contact.json', {
@@ -85,6 +87,12 @@ export function writersInfo() {
             }
             return writersData;
         });
+};
+
+export function countPost() {
+
+    let infoRef = fire.database().ref('info').orderByKey().limitToLast(100);
+    return infoRef;
 };
 
 export default function ApiServices() { };
