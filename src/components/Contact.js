@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import {saveContact} from '../common/ApiServices';
-import {currentDateWithFormat} from '../common/Utils';
+import { saveContact } from '../common/ApiServices';
+import { currentDateWithFormat } from '../common/Utils';
 
-import {countPost} from '../common/ApiServices';
+import { countPost } from '../common/ApiServices';
+
 
 class Contact extends Component {
 
@@ -21,9 +22,13 @@ class Contact extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount(){
-        countPost();
+    componentDidMount() {
+        console.log("FROM CONTACT: "+countPost('recipe'));
+        
+
+        
     }
+
 
     handleChange(event) {
         this.setState(
@@ -47,7 +52,7 @@ class Contact extends Component {
             title: this.state.title
         }
 
-        try{
+        try {
             saveContact(info);
             this.setState(
                 {
@@ -57,12 +62,12 @@ class Contact extends Component {
                     content: ''
                 }
             );
-            NotificationManager.success('Message sent succesfully');      
-        }catch(e){
+            NotificationManager.success('Message sent succesfully');
+        } catch (e) {
             NotificationManager.error('Could not save the information');
         }
-      
-    
+
+
     }
 
     render() {

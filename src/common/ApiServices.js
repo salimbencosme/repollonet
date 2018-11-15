@@ -1,4 +1,4 @@
-import fire from './fire';
+import firebase from '../common/firebase';
 
 export function saveContact(contactParam) {
 
@@ -89,10 +89,23 @@ export function writersInfo() {
         });
 };
 
-export function countPost() {
 
-    let infoRef = fire.database().ref('info').orderByKey().limitToLast(100);
-    return infoRef;
+export function countPost(type_param) {
+    var allInfo = firebase.database().ref('info/').orderByChild('type').equalTo(type_param);
+    allInfo.on("value", function (data) {
+        var count = 0;
+        var infoData = data.val();
+        for (var key in infoData) {
+            if(infoData[key].active === true){
+                count++;
+            }
+        }
+
+        return count;
+        
+    }, function (error) {
+        console.log("Error: " + error.code);
+    });
 };
 
 export default function ApiServices() { };
