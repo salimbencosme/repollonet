@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import { saveContact } from '../common/ApiServices';
+import { saveContact} from '../common/ApiServices';
 import { currentDateWithFormat } from '../common/Utils';
-
-import { countPost } from '../common/ApiServices';
-
 
 class Contact extends Component {
 
@@ -21,14 +18,6 @@ class Contact extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    componentDidMount() {
-        console.log("FROM CONTACT: "+countPost('recipe'));
-        
-
-        
-    }
-
 
     handleChange(event) {
         this.setState(

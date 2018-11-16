@@ -92,20 +92,18 @@ export function writersInfo() {
 
 export function countPost(type_param) {
     var allInfo = firebase.database().ref('info/').orderByChild('type').equalTo(type_param);
-    allInfo.on("value", function (data) {
-        var count = 0;
-        var infoData = data.val();
-        for (var key in infoData) {
-            if(infoData[key].active === true){
-                count++;
-            }
-        }
+    return allInfo;
+};
 
-        return count;
-        
-    }, function (error) {
-        console.log("Error: " + error.code);
-    });
+
+export function countActiveInfo(infoData){
+    var count = 0;
+    for (var key in infoData) {
+        if(infoData[key].active === true){
+            count++;
+        }
+    }
+    return count;
 };
 
 export default function ApiServices() { };

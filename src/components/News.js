@@ -1,11 +1,77 @@
 import React, { Component } from 'react';
 import { Badge } from 'react-bootstrap';
+import { saveContact,countActiveInfo,countPost } from '../common/ApiServices';
 
 class News extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            total: 0,
+            totalTips: 0,
+            totalRecipes:0,
+            totalDidUKnow:0
+        }
     }
+    
+    componentWillMount() {
+
+        var totalTipsCounter = 0;
+        var totalRecipesCounter = 0;
+        var totalDidUKnowCounter = 0;
+
+        countPost('recipe').on("value", function (data) {
+            totalRecipesCounter = countActiveInfo(data.val());
+        
+           console.log("->"+totalRecipesCounter);
+            /*var info = {
+                total: this.state.total + totalTipsCounter_p,
+                totalTips: totalTipsCounter_p,
+                totalRecipes: this.state.totalRecipes,
+                totalDidUKnow: this.state.totalDidUKnow
+            }*/
+
+            this.setState({
+                totalRecipes:totalRecipesCounter
+            })
+
+        }, function (error) {
+            console.log("Error Recipes: " + error.code);
+        });
+
+        countPost('information').on("value", function (data) {
+            totalDidUKnowCounter = countActiveInfo(data.val());
+            console.log("2-"+totalDidUKnowCounter);
+        }, function (error) {
+            console.log("Error Did you Know: " + error.code);
+        });
+
+        countPost('tips').on("value", function (data) {
+            totalTipsCounter = countActiveInfo(data.val());
+            console.log("3-"+totalTipsCounter);
+        }, function (error) {
+            console.log("Error Tips: " + error.code);
+        });
+
+        
+        this.setState({
+            total: 1,
+            totalTips: 1,
+            totalRecipes:1,
+            totalDidUKnow:1
+        });
+
+/*
+        this.setState({
+            total: (totalTipsCounter + totalDidUKnowCounter + totalTipsCounter),
+            totalTips: totalTipsCounter,
+            totalRecipes: totalRecipesCounter,
+            totalDidUKnow: totalDidUKnowCounter
+        });
+
+        */
+    }
+
 
     render() {
         return (
@@ -16,10 +82,10 @@ class News extends Component {
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
                         <ul id="menu">
-                            <li><span class="badge-name">Read all</span> <Badge>1,050</Badge></li>
-                            <li><span class="badge-name">Tips</span> <Badge>150</Badge></li>
-                            <li><span class="badge-name">Did you know?</span> <Badge>355</Badge></li>
-                            <li><span class="badge-name">Recipes</span> <Badge>600</Badge></li>
+                            <li><span class="badge-name">Read all</span> <Badge>{this.state.total}</Badge></li>
+                            <li><span class="badge-name">Tips</span> <Badge>{this.state.totalTips}</Badge></li>
+                            <li><span class="badge-name">Did you know?</span> <Badge>{this.state.totalDidUKnow}</Badge></li>
+                            <li><span class="badge-name">Recipes</span> <Badge>{this.state.totalRecipes}</Badge></li>
                         </ul>
                   </div>
 
