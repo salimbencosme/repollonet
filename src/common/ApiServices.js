@@ -89,12 +89,9 @@ export function writersInfo() {
         });
 };
 
-
 export function countPost(type_param) {
-    var allInfo = firebase.database().ref('info/').orderByChild('type').equalTo(type_param);
-    return allInfo;
+    return firebase.database().ref('info/').orderByChild('type').equalTo(type_param);
 };
-
 
 export function countActiveInfo(infoData){
     var count = 0;
@@ -104,6 +101,14 @@ export function countActiveInfo(infoData){
         }
     }
     return count;
+};
+
+export function getLastInfo(infoData){
+    var lastInfoData = {};
+    for (var key in infoData) {
+       lastInfoData = infoData[key];
+    }
+    return lastInfoData;
 };
 
 export default function ApiServices() { };
