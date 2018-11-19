@@ -111,4 +111,17 @@ export function getLastInfo(infoData){
     return lastInfoData;
 };
 
+export function getLastsInfo(infoData,quantity){
+    var lastInfoData = [];
+    var cont = 0;
+    for (var key in infoData.reverse()) {
+       if(cont < quantity){ 
+            lastInfoData.push(infoData[key]);
+            cont++;
+        }
+    }
+    return lastInfoData;
+};
+
+
 export default function ApiServices() { };

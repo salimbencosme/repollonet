@@ -27,8 +27,6 @@ class Main extends Component {
                             <div className="panelNews">
                                 <News/>
                             </div>
-                         
-                         
                         </Col>
                     </Row>
 

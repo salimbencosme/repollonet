@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Badge } from 'react-bootstrap';
-import { saveContact, countActiveInfo, countPost, getLastInfo } from '../common/ApiServices';
+import { saveContact, countActiveInfo, countPost, getLastInfo, getLastsInfo } from '../common/ApiServices';
 import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
@@ -19,7 +19,7 @@ class News extends Component {
             lastTips: {},
             lastDidUKnow: {},
             lastRecipe: {},
-            lastFeature: {}
+            lastFeature: []
         }
     }
 
@@ -48,7 +48,7 @@ class News extends Component {
             currentComponent.setState({
                 totalDidUKnow: totalDidUKnowCounter,
                 total: currentComponent.state.total + totalDidUKnowCounter,
-                lastDidUKnow:lastDiduKnowTemp
+                lastDidUKnow: lastDiduKnowTemp
             });
         }, function (error) {
             console.log("Error Did you Know: " + error.code);
@@ -60,7 +60,7 @@ class News extends Component {
             currentComponent.setState({
                 totalTips: totalTipsCounter,
                 total: currentComponent.state.total + totalTipsCounter,
-                lastTips:lastTotalTipsTemp
+                lastTips: lastTotalTipsTemp
             });
         }, function (error) {
             console.log("Error Tips: " + error.code);
@@ -68,52 +68,52 @@ class News extends Component {
 
         countPost('information').on("value", function (data) {
             totalFeaturesCounter = countActiveInfo(data.val());
-            var lastTotalFeaturesTemp = getLastInfo(data.val());
+            var lastTotalFeaturesTemp = getLastsInfo(data.val());
             currentComponent.setState({
                 totalFeatures: totalFeaturesCounter,
                 total: currentComponent.state.total + totalFeaturesCounter,
-                lastFeature:lastTotalFeaturesTemp
+                lastFeature: lastTotalFeaturesTemp
             });
         }, function (error) {
             console.log("Error Feaures: " + error.code);
         });
     }
 
-    getImageType(type){
-        switch(type){
+    getImageType(type) {
+        switch (type) {
             case 'recipe':
                 return recipes;
-        
+
             case 'didyouknow':
                 return diduknow;
-            
+
             case 'tips':
                 return tips;
-            
+
             case 'information':
                 return features;
         }
     }
 
-    getTitleType(type){
-        switch(type){
+    getTitleType(type) {
+        switch (type) {
             case 'recipe':
                 return 'LAST RECIPE';
-        
+
             case 'didyouknow':
                 return 'LAST DID YOU KNOW?';
-            
+
             case 'tips':
                 return 'LAST TIPS';
-            
+
             case 'information':
                 return 'NEW FEATURE';
         }
     }
 
-    cardElement(id, title, content,type) {
+    cardElement(id, title, content, type) {
 
-        if(title === undefined && content === undefined)
+        if (title === undefined && content === undefined)
             return "";
 
         return (
@@ -132,6 +132,34 @@ class News extends Component {
                 </div>
             </div>
         );
+    }
+
+    cardElmentList(dataArray) {
+
+        var lastData = [];
+
+        if (dataArray != []) {
+            for (data in dataArray) {
+                lastData.push(
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="our-services-wrapper mb-60">
+                            <div class="services-inner">
+                                <div class="our-services-img">
+                                    <img className="icon-news" src={this.getImageType(data.type)} width="68px" alt="" />
+                                </div>
+                                <div class="our-services-text">
+                                    <h4>{this.getTitleType(data.type)}</h4>
+                                    <h3>{data.title}</h3>
+                                    <p>{data.content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+            return lastData;
+        }
+        return "";
     }
 
     render() {
@@ -155,12 +183,10 @@ class News extends Component {
 
 
                 <div class="row">
-
-                {this.cardElement(this.state.lastTips.id, this.state.lastTips.title, this.state.lastTips.content,this.state.lastTips.type)}
-                {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content,this.state.lastDidUKnow.type)}
-                {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content,this.state.lastRecipe.type)}
-                {this.cardElement(this.state.lastFeature.id, this.state.lastFeature.title, this.state.lastFeature.content,this.state.lastFeature.type)}                   
-
+                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title, this.state.lastTips.content, this.state.lastTips.type)}
+                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content, this.state.lastDidUKnow.type)}
+                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content, this.state.lastRecipe.type)}
+                    {this.cardElmentList(this.state.lastFeature)}
                 </div>
             </div>
 
