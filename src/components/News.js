@@ -65,7 +65,7 @@ class News extends Component {
 
         countPost('information').on("value", function (data) {
             totalFeaturesCounter = countActiveInfo(data.val());
-            var lastTotalFeaturesTemp = getLastsInfo(data.val(),5);
+            var lastTotalFeaturesTemp = getLastsInfo(data.val(), 5);
             currentComponent.setState({
                 totalFeatures: totalFeaturesCounter,
                 lastFeature: lastTotalFeaturesTemp
@@ -134,7 +134,7 @@ class News extends Component {
 
         var lastData = [];
 
-        if(typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+        if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
             array.forEach(element => {
                 lastData.push(
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -152,7 +152,7 @@ class News extends Component {
                         </div>
                     </div>
                 );
-            }); 
+            });
             return lastData;
         }
         return "";
@@ -178,11 +178,21 @@ class News extends Component {
                 </div>
 
 
-                <div class="row">
+                <div class="row scrollable-div">
                     {this.cardElement(this.state.lastTips.id, this.state.lastTips.title, this.state.lastTips.content, this.state.lastTips.type)}
                     {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content, this.state.lastDidUKnow.type)}
                     {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content, this.state.lastRecipe.type)}
                     {this.cardElmentList(this.state.lastFeature)}
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <br /><br /><br /><br />
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <br /><br /><br /><br />
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <br /><br /><br /><br />
+                    </div>
                 </div>
             </div>
 
