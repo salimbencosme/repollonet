@@ -5,6 +5,7 @@ import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
+import hands from '../resources/img/hands.png';
 
 class News extends Component {
 
@@ -183,6 +184,9 @@ class News extends Component {
                     {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content, this.state.lastDidUKnow.type)}
                     {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content, this.state.lastRecipe.type)}
                     {this.cardElmentList(this.state.lastFeature)}
+
+
+                    <img id="img-hands" className="icon-news" src={hands} width="68px" alt="" title="Scroll to see more information" />
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <br /><br /><br /><br />

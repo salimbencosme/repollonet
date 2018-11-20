@@ -112,6 +112,19 @@ body {
     height:100vh;
 }
 
+#img-hands{
+    z-index: 1000000;
+    float: right;
+    background: #57b5e5;
+    border-radius: 50px;
+    padding: 2%;
+    margin-right: 11px;
+    border: 4px dashed #eceff1;
+    position: absolute;
+    right: -10px;
+    bottom: 45px;
+}
+
 /*NEWS*/
 
 .mb-60 {
