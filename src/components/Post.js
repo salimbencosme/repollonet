@@ -15,11 +15,19 @@ class Post extends Component {
 
     componentDidMount() {
         let currentComponent = this;
-        themeHandler("default");
+        let typecontentparam = currentComponent.props.match.params.typecontent;
+
+        if(typecontentparam === 'all'){
+            themeHandler("default");
+        }else{
+            themeHandler(typecontentparam);
+        }
+
+        
         console.log(this.props.match.params.typecontent);
 
         getPostAllPost().on('value', function (data) {
-            let postTemp = getPostInfo(data.val(), currentComponent.props.match.params.typecontent);
+            let postTemp = getPostInfo(data.val(), typecontentparam);
 
             currentComponent.setState({
                 posts: postTemp
@@ -51,6 +59,7 @@ class Post extends Component {
                     </div>
 
                 </Link>
+                <br/>
             </Col>
         );
     }
@@ -72,9 +81,12 @@ class Post extends Component {
     }
 
     createCardList() {
+        let list = [];
         this.state.posts.forEach(element => {
-            this.createCard(element.type, element.pic, element.title, element.content)
+            list.push(this.createCard(element.type, element.pic, element.title, element.content));
         });
+
+        return list;
     }
 
     render() {
@@ -86,11 +98,9 @@ class Post extends Component {
                         {this.createCardList()}
                     </Row>
 
-                    <br />
-                    <br />
                 </Grid>
 
-                <br />
+                <br/>
 
                 <Pager>
                     <Pager.Item href="#">Previous</Pager.Item>{' '}

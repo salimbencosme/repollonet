@@ -3,6 +3,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import 'react-notifications/lib/notifications.css';
 import { saveContact} from '../common/ApiServices';
 import { currentDateWithFormat } from '../common/Utils';
+import themeHandler from '../common/ThemeHandler';
 
 class Contact extends Component {
 
@@ -17,6 +18,10 @@ class Contact extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        themeHandler("default");
     }
 
     handleChange(event) {

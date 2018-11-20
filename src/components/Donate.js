@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import themeHandler from '../common/ThemeHandler';
 
 class Donate extends Component{
 
@@ -6,6 +7,9 @@ class Donate extends Component{
         super(props);
     }
 
+    componentDidMount() {
+        themeHandler("default");
+    }
 
     render(){
         return(

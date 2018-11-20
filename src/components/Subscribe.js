@@ -3,6 +3,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import 'react-notifications/lib/notifications.css';
 import {saveSubscribe} from '../common/ApiServices';
 import {currentDateWithFormat} from '../common/Utils';
+import themeHandler from '../common/ThemeHandler';
 
 class Subscribe extends Component{
 
@@ -16,6 +17,9 @@ class Subscribe extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        themeHandler("default");
+    }
 
     handleChange(event){
         this.setState(

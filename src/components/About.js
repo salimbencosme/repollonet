@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import {aboutInfo,writersInfo} from '../common/ApiServices';
+import themeHandler from '../common/ThemeHandler';
 
 class About extends Component {
 
@@ -16,6 +17,9 @@ class About extends Component {
     }
 
     componentDidMount() {
+
+        themeHandler("default");
+
         aboutInfo().then((data)=>{
             this.setState({
                 title:data.title,
