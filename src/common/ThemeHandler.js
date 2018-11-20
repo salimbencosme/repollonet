@@ -53,7 +53,7 @@ var blueTheme = {
         case "tips":
             themeSelected = yellowTheme;
             break;
-        case "diduknow":
+        case "didyouknow":
             themeSelected = purpleTheme;
             break;
         case "recipe":

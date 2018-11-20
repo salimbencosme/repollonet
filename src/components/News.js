@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Badge } from 'react-bootstrap';
-import { saveContact, countActiveInfo, countPost, getLastInfo, getLastsInfo } from '../common/ApiServices';
+import { countActiveInfo, getPostByType, getLastInfo, getLastsInfo } from '../common/ApiServices';
 import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
@@ -25,15 +25,15 @@ class News extends Component {
     }
 
     componentDidMount() {
-        var totalTipsCounter = 0;
-        var totalRecipesCounter = 0;
-        var totalDidUKnowCounter = 0;
-        var totalFeaturesCounter = 0;
+        let totalTipsCounter = 0;
+        let totalRecipesCounter = 0;
+        let totalDidUKnowCounter = 0;
+        let totalFeaturesCounter = 0;
         let currentComponent = this;
 
-        countPost('recipe').on('value', function (data) {
+        getPostByType('recipe').on('value', function (data) {
             totalRecipesCounter = countActiveInfo(data.val());
-            var lastRecipeTemp = getLastInfo(data.val());
+            let lastRecipeTemp = getLastInfo(data.val());
             currentComponent.setState({
                 totalRecipes: totalRecipesCounter,
                 lastRecipe: lastRecipeTemp
@@ -42,9 +42,9 @@ class News extends Component {
             console.log("Error Recipes: " + error.code);
         });
 
-        countPost('didyouknow').on("value", function (data) {
+        getPostByType('didyouknow').on("value", function (data) {
             totalDidUKnowCounter = countActiveInfo(data.val());
-            var lastDiduKnowTemp = getLastInfo(data.val());
+            let lastDiduKnowTemp = getLastInfo(data.val());
             currentComponent.setState({
                 totalDidUKnow: totalDidUKnowCounter,
                 lastDidUKnow: lastDiduKnowTemp
@@ -53,9 +53,9 @@ class News extends Component {
             console.log("Error Did you Know: " + error.code);
         });
 
-        countPost('tips').on("value", function (data) {
+        getPostByType('tips').on("value", function (data) {
             totalTipsCounter = countActiveInfo(data.val());
-            var lastTotalTipsTemp = getLastInfo(data.val());
+            let lastTotalTipsTemp = getLastInfo(data.val());
             currentComponent.setState({
                 totalTips: totalTipsCounter,
                 lastTips: lastTotalTipsTemp
@@ -64,9 +64,9 @@ class News extends Component {
             console.log("Error Tips: " + error.code);
         });
 
-        countPost('information').on("value", function (data) {
+        getPostByType('information').on("value", function (data) {
             totalFeaturesCounter = countActiveInfo(data.val());
-            var lastTotalFeaturesTemp = getLastsInfo(data.val(), 5);
+            let lastTotalFeaturesTemp = getLastsInfo(data.val(), 5);
             currentComponent.setState({
                 totalFeatures: totalFeaturesCounter,
                 lastFeature: lastTotalFeaturesTemp

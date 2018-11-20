@@ -89,8 +89,13 @@ export function writersInfo() {
         });
 };
 
-export function countPost(type_param) {
+export function getPostByType(type_param) {
     return firebase.database().ref('info/').orderByChild('type').equalTo(type_param);
+};
+
+
+export function getPostAllPost() {
+    return firebase.database().ref('info/').orderByChild('type');
 };
 
 export function countActiveInfo(infoData) {
@@ -126,6 +131,23 @@ export function getLastsInfo(infoData, quantity) {
     }
     return lastInfoData;
 };
+
+export function getPostInfo(infoData, type) {
+    var lastInfoData = [];
+    for (var key in infoData) {
+        if (infoData[key].active === true) {
+            if (type === 'all') {
+                lastInfoData.push(infoData[key]);
+            } else {
+                if (infoData[key].type === type) {
+                    lastInfoData.push(infoData[key]);
+                }
+            }
+        }
+    }
+    return lastInfoData;
+};
+
 
 
 export default function ApiServices() { };

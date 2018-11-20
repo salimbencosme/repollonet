@@ -18,7 +18,7 @@ ReactDOM.render(
         <Main>
         <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/post" component={Post} />
+            <Route path="/post/:typecontent" component={Post} />
             <Route path="/details/:typecontent" component={PostDetails} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

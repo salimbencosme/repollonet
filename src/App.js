@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div> 
-        <Link to="/post">
+        <Link to="/post/all">
         <img className="img-welcome" src="https://pulmonaryfibrosisnews.com/forums/wp-content/uploads/2018/06/welcome.jpg" />
         </Link>
       </div>
