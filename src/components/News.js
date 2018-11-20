@@ -35,7 +35,6 @@ class News extends Component {
             var lastRecipeTemp = getLastInfo(data.val());
             currentComponent.setState({
                 totalRecipes: totalRecipesCounter,
-                total: currentComponent.state.total + totalRecipesCounter,
                 lastRecipe: lastRecipeTemp
             });
         }, function (error) {
@@ -47,7 +46,6 @@ class News extends Component {
             var lastDiduKnowTemp = getLastInfo(data.val());
             currentComponent.setState({
                 totalDidUKnow: totalDidUKnowCounter,
-                total: currentComponent.state.total + totalDidUKnowCounter,
                 lastDidUKnow: lastDiduKnowTemp
             });
         }, function (error) {
@@ -59,7 +57,6 @@ class News extends Component {
             var lastTotalTipsTemp = getLastInfo(data.val());
             currentComponent.setState({
                 totalTips: totalTipsCounter,
-                total: currentComponent.state.total + totalTipsCounter,
                 lastTips: lastTotalTipsTemp
             });
         }, function (error) {
@@ -68,10 +65,9 @@ class News extends Component {
 
         countPost('information').on("value", function (data) {
             totalFeaturesCounter = countActiveInfo(data.val());
-            var lastTotalFeaturesTemp = getLastsInfo(data.val());
+            var lastTotalFeaturesTemp = getLastsInfo(data.val(),5);
             currentComponent.setState({
                 totalFeatures: totalFeaturesCounter,
-                total: currentComponent.state.total + totalFeaturesCounter,
                 lastFeature: lastTotalFeaturesTemp
             });
         }, function (error) {
@@ -134,29 +130,29 @@ class News extends Component {
         );
     }
 
-    cardElmentList(dataArray) {
+    cardElmentList(array) {
 
         var lastData = [];
 
-        if (dataArray != []) {
-            for (data in dataArray) {
+        if(typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+            array.forEach(element => {
                 lastData.push(
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="our-services-wrapper mb-60">
                             <div class="services-inner">
                                 <div class="our-services-img">
-                                    <img className="icon-news" src={this.getImageType(data.type)} width="68px" alt="" />
+                                    <img className="icon-news" src={this.getImageType(element.type)} width="68px" alt="" />
                                 </div>
                                 <div class="our-services-text">
-                                    <h4>{this.getTitleType(data.type)}</h4>
-                                    <h3>{data.title}</h3>
-                                    <p>{data.content}</p>
+                                    <h4>{this.getTitleType(element.type)}</h4>
+                                    <h3>{element.title}</h3>
+                                    <p>{element.content}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 );
-            }
+            }); 
             return lastData;
         }
         return "";
@@ -171,7 +167,7 @@ class News extends Component {
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
                         <ul id="menu">
-                            <li><span class="badge-name">Read all</span> <Badge>{this.state.total}</Badge></li>
+                            <li><span class="badge-name">Read all</span> <Badge>{this.state.totalTips + this.state.totalRecipes + this.state.totalDidUKnow + this.state.totalFeatures}</Badge></li>
                             <li><span class="badge-name">Tips</span> <Badge>{this.state.totalTips}</Badge></li>
                             <li><span class="badge-name">Did you know?</span> <Badge>{this.state.totalDidUKnow}</Badge></li>
                             <li><span class="badge-name">Recipes</span> <Badge>{this.state.totalRecipes}</Badge></li>

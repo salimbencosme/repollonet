@@ -93,31 +93,35 @@ export function countPost(type_param) {
     return firebase.database().ref('info/').orderByChild('type').equalTo(type_param);
 };
 
-export function countActiveInfo(infoData){
+export function countActiveInfo(infoData) {
     var count = 0;
     for (var key in infoData) {
-        if(infoData[key].active === true){
+        if (infoData[key].active === true) {
             count++;
         }
     }
     return count;
 };
 
-export function getLastInfo(infoData){
+export function getLastInfo(infoData) {
     var lastInfoData = {};
     for (var key in infoData) {
-       lastInfoData = infoData[key];
+        if (infoData[key].active === true) {
+            lastInfoData = infoData[key];
+        }
     }
     return lastInfoData;
 };
 
-export function getLastsInfo(infoData,quantity){
+export function getLastsInfo(infoData, quantity) {
     var lastInfoData = [];
     var cont = 0;
-    for (var key in infoData.reverse()) {
-       if(cont < quantity){ 
-            lastInfoData.push(infoData[key]);
-            cont++;
+    for (var key in infoData) {
+        if (infoData[key].active === true) {
+            if (cont < quantity) {
+                lastInfoData.push(infoData[key]);
+                cont++;
+            }
         }
     }
     return lastInfoData;
