@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
-import { getPostAllPost, getPostInfo,encryptKey } from '../common/ApiServices';
+import { getPostAllPost, getPostInfo} from '../common/ApiServices';
+import { encryptKey } from '../common/Utils';
 
 class Post extends Component {
 

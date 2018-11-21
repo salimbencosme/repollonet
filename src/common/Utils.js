@@ -1,19 +1,31 @@
+import CryptoJS from 'crypto-js';
 
-  export function currentDateWithFormat() {
-    let dateCustom = new Date();
-    let day = dateCustom.getDate();
-    let month = dateCustom.getUTCMonth() + 1;
-    let year = dateCustom.getUTCFullYear();
-    let hours = dateCustom.getUTCHours();
-    let minutes = dateCustom.getUTCMinutes();
-    let seconds = dateCustom.getUTCMinutes();
+export function currentDateWithFormat() {
+  let dateCustom = new Date();
+  let day = dateCustom.getDate();
+  let month = dateCustom.getUTCMonth() + 1;
+  let year = dateCustom.getUTCFullYear();
+  let hours = dateCustom.getUTCHours();
+  let minutes = dateCustom.getUTCMinutes();
+  let seconds = dateCustom.getUTCMinutes();
 
-    if (day < 10) { day = '0' + day; }
+  if (day < 10) { day = '0' + day; }
 
-    if (month < 10) { month = '0' + month; }
+  if (month < 10) { month = '0' + month; }
 
-    return day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+  return day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
 
-  }
+}
 
-export default function Utils(){};
+
+export function encryptKey(value) {
+  return CryptoJS.AES.encrypt(value, 'secret key repollo.net');
+}
+
+export function decryptKey(valueEncrypted) {
+  let bytes = CryptoJS.AES.decrypt(valueEncrypted, 'secret key repollo.net');
+  return bytes.toString(CryptoJS.enc.Utf8);
+}
+
+
+export default function Utils() { };

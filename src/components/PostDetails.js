@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import themeHandler from '../common/ThemeHandler';
-import { getPostById,decryptKey } from '../common/ApiServices';
+import { getPostById } from '../common/ApiServices';
+import { decryptKey } from '../common/Utils';
+
 
 class PostDetails extends Component {
 

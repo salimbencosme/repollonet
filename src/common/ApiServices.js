@@ -207,16 +207,4 @@ export function getPostInfo(infoData, type) {
     return lastInfoData;
 };
 
-
-export function  encryptKey(value) {
-    return CryptoJS.AES.encrypt(value, 'secret key repollo.net');
-}
-
-export function  decryptKey(valueEncrypted) {
-    let bytes  = CryptoJS.AES.decrypt(valueEncrypted, 'secret key repollo.net');
-    return bytes.toString(CryptoJS.enc.Utf8);
-}
-
-
-
 export default function ApiServices() { };
