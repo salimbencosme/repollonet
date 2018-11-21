@@ -19,11 +19,38 @@ export function currentDateWithFormat() {
 
 
 export function encryptKey(value) {
-  return CryptoJS.AES.encrypt(value, 'secret key repollo.net');
+  let valueClean = "";
+  let valueTemp = CryptoJS.AES.encrypt(value, 'secret key repollo.net');
+  let array = valueTemp.toString().split('/');
+
+  if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+    array.forEach(element => {
+      if (element != "") {
+        valueClean += element + "REPOLLONET";
+      }
+    });
+  } else {
+    valueClean = valueTemp;
+  }
+
+  return valueClean.trim();
 }
 
 export function decryptKey(valueEncrypted) {
-  let bytes = CryptoJS.AES.decrypt(valueEncrypted, 'secret key repollo.net');
+  let valueClean = "";
+  let array = valueEncrypted.toString().split('REPOLLONET');
+
+  if (typeof array != "undefined" && array != null && array.length != null && array.length > 0) {
+    array.forEach(element => {
+      if (element != "") {
+        valueClean += element + "/";
+      }
+    });
+  } else {
+    valueClean = valueEncrypted;
+  }
+
+  let bytes = CryptoJS.AES.decrypt(valueClean.trim(), 'secret key repollo.net');
   return bytes.toString(CryptoJS.enc.Utf8);
 }
 

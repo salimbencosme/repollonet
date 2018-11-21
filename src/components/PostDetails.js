@@ -17,6 +17,7 @@ class PostDetails extends Component {
     componentDidMount() {
         let currentComponent = this;
         themeHandler(this.props.match.params.typecontent);
+        console.log(this.props.match.params.id);
 
         getPostById(decryptKey(this.props.match.params.id)).on('value', function (data) {
             
