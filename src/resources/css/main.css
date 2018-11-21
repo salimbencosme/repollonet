@@ -353,8 +353,14 @@ ul#menu li {
 }
 
 .img-details{
-    width: 100%;
+    width: 330px;
     height: 250px;
+    margin: 11px;
+    -webkit-transform: rotate(20deg);
+    transform: rotate(11deg);
+    margin-top: 15px;
+    background-color: #eceff1;
+    border: 8px dashed var(--theme-primary-color);
 }
 
 a:hover {
