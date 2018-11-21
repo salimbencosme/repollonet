@@ -19,7 +19,7 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/post/:typecontent" component={Post} />
-            <Route path="/details/:typecontent" component={PostDetails} />
+            <Route path="/details/:typecontent/:id" component={PostDetails} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/subscribe" component={Subscribe} />

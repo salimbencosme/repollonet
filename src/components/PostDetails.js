@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import themeHandler from '../common/ThemeHandler';
+import { getPostById,decryptKey } from '../common/ApiServices';
+
 class PostDetails extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            post:{}
+        }
     }
 
     componentDidMount() {
+        let currentComponent = this;
         themeHandler(this.props.match.params.typecontent);
+
+        getPostById(decryptKey(this.props.match.params.id)).on('value', function (data) {
+            
+            console.log(data.val());
+            currentComponent.setState({
+                post:data.val()
+            });
+
+        }, function (error) {
+            console.log("Error Recipes: " + error.code);
+        });
     }
 
     render() {

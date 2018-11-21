@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
-import { getPostAllPost, getPostInfo } from '../common/ApiServices';
+import { getPostAllPost, getPostInfo,encryptKey } from '../common/ApiServices';
 
 class Post extends Component {
 
@@ -23,9 +23,6 @@ class Post extends Component {
             themeHandler(typecontentparam);
         }
 
-        
-        console.log(this.props.match.params.typecontent);
-
         getPostAllPost().on('value', function (data) {
             let postTemp = getPostInfo(data.val(), typecontentparam);
 
@@ -45,11 +42,11 @@ class Post extends Component {
         return value.charAt(0).toUpperCase() + "" + words;
     }
 
-    createCard(type, imageName, title, content) {
+    createCard(type, imageName, title, content,id) {
         let mainUrl = "/images/" + imageName;
         return (
             <Col xs={4} md={4}>
-                <Link to={'/details/' + type}>
+                <Link to={'/details/' + type + '/'+ encryptKey(id)}>
                     <div class={this.determineColorCard(type)}>
                         <img class="img-card" src={mainUrl} alt="Avatar" />
                         <div class="container-two">
@@ -83,7 +80,7 @@ class Post extends Component {
     createCardList() {
         let list = [];
         this.state.posts.forEach(element => {
-            list.push(this.createCard(element.type, element.pic, element.title, element.content));
+            list.push(this.createCard(element.type, element.pic, element.title, element.content,element.id));
         });
 
         return list;

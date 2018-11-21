@@ -1,4 +1,5 @@
 import firebase from '../common/firebase';
+import CryptoJS from 'crypto-js';
 
 export function saveContact(contactParam) {
 
@@ -98,6 +99,10 @@ export function getPostAllPost() {
     return firebase.database().ref('info/').orderByChild('type');
 };
 
+export function getPostById(id) {
+    return firebase.database().ref('info/').child(id);
+};
+
 export function countActiveInfo(infoData) {
     var count = 0;
     for (var key in infoData) {
@@ -112,7 +117,19 @@ export function getLastInfo(infoData) {
     var lastInfoData = {};
     for (var key in infoData) {
         if (infoData[key].active === true) {
-            lastInfoData = infoData[key];
+            lastInfoData = {
+                "id": key,
+                "content": infoData[key].content,
+                "date_cretated": infoData[key].date_created,
+                "date_lastviewed": infoData[key].data_lastviewed,
+                "ingredients": infoData[key].ingredients,
+                "liked": infoData[key].liked,
+                "pic": infoData[key].pic,
+                "title": infoData[key].title,
+                "type": infoData[key].type,
+                "user": infoData[key].user,
+                "viewed": infoData[key].viewed
+            };
         }
     }
     return lastInfoData;
@@ -124,7 +141,21 @@ export function getLastsInfo(infoData, quantity) {
     for (var key in infoData) {
         if (infoData[key].active === true) {
             if (cont < quantity) {
-                lastInfoData.push(infoData[key]);
+                lastInfoData.push(
+                    {
+                        "id": key,
+                        "content": infoData[key].content,
+                        "date_cretated": infoData[key].date_created,
+                        "date_lastviewed": infoData[key].data_lastviewed,
+                        "ingredients": infoData[key].ingredients,
+                        "liked": infoData[key].liked,
+                        "pic": infoData[key].pic,
+                        "title": infoData[key].title,
+                        "type": infoData[key].type,
+                        "user": infoData[key].user,
+                        "viewed": infoData[key].viewed
+                    }
+                );
                 cont++;
             }
         }
@@ -137,16 +168,54 @@ export function getPostInfo(infoData, type) {
     for (var key in infoData) {
         if (infoData[key].active === true) {
             if (type === 'all') {
-                lastInfoData.push(infoData[key]);
+                lastInfoData.push(
+                    {
+                        "id": key,
+                        "content": infoData[key].content,
+                        "date_cretated": infoData[key].date_created,
+                        "date_lastviewed": infoData[key].data_lastviewed,
+                        "ingredients": infoData[key].ingredients,
+                        "liked": infoData[key].liked,
+                        "pic": infoData[key].pic,
+                        "title": infoData[key].title,
+                        "type": infoData[key].type,
+                        "user": infoData[key].user,
+                        "viewed": infoData[key].viewed
+                    }
+                );
             } else {
                 if (infoData[key].type === type) {
-                    lastInfoData.push(infoData[key]);
+                    lastInfoData.push(
+                        {
+                            "id": key,
+                            "content": infoData[key].content,
+                            "date_cretated": infoData[key].date_created,
+                            "date_lastviewed": infoData[key].data_lastviewed,
+                            "ingredients": infoData[key].ingredients,
+                            "liked": infoData[key].liked,
+                            "pic": infoData[key].pic,
+                            "title": infoData[key].title,
+                            "type": infoData[key].type,
+                            "user": infoData[key].user,
+                            "viewed": infoData[key].viewed
+                        }
+                    );
                 }
             }
         }
     }
     return lastInfoData;
 };
+
+
+export function  encryptKey(value) {
+    return CryptoJS.AES.encrypt(value, 'secret key repollo.net');
+}
+
+export function  decryptKey(valueEncrypted) {
+    let bytes  = CryptoJS.AES.decrypt(valueEncrypted, 'secret key repollo.net');
+    return bytes.toString(CryptoJS.enc.Utf8);
+}
 
 
 

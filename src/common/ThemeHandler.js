@@ -1,3 +1,5 @@
+
+
 var defaultTheme = {
     '--theme-primary-color': '#039be5',
     '--theme-second-color': '#028ad3',
@@ -74,4 +76,11 @@ var blueTheme = {
     document.documentElement.style.setProperty('--theme-fith-color', themeSelected['--theme-fith-color']);
     document.documentElement.style.setProperty('--theme-sixth-color', themeSelected['--theme-sixth-color']);
 }
+
+
+
+
+
+
+
 
