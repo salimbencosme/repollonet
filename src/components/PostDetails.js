@@ -48,8 +48,60 @@ class PostDetails extends Component {
     }
 
 
+    createPicture(pic) {
+        let picture = "";
+        let mainUrl = "/images/" + pic;
+
+        if (pic != undefined && pic != "") {
+            picture = (
+                <div>
+                    <div class="pull-right">
+                        <img src={mainUrl} class="img-thumbnail img-details" />
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            )
+        }
+        return picture;
+    }
+
+
+    createVideo(urlcode, showVideo) {
+        let video = "";
+        if (showVideo) {
+            let url = "https://www.youtube.com/embed/" + urlcode + "?autoplay=0&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com";
+            video = (
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="500" type="text/html" src={url}></iframe>
+            );
+        }
+        return video;
+    }
+
+    createIngredientList(ingredients) {
+        let array = [];
+        for (let value in ingredients) {
+            array.push(<li class="li-custom">{ingredients[value].name}</li>)
+        }
+        return array;
+    }
+
+
     createPostDetail(post) {
-        let mainUrl = "/images/" + post.pic;
+
+        let titleparam = "";
+        if (post.title != undefined) {
+            titleparam = (post.title).toString().toUpperCase();
+        }
+
+        let showVideo = false;
+        if (post.video != undefined && post.video != "") {
+            showVideo = true;
+        }
+
+
+
         return (
             <Grid>
                 <Row className="show-grid">
@@ -61,60 +113,35 @@ class PostDetails extends Component {
                                 <img className="icon-news" src={this.getImageType(post.type)} width="68px" alt="" />
                             </div>
 
-                            <div class="pull-right">
-                                <img src={mainUrl} class="img-thumbnail img-details" />
-                            </div>
-
-
-                            <br />
-
-                            <br />
-                            <br />
+                            {this.createPicture(post.pic)}
                             <div class="container">
                                 <header>
                                     <section>
-                                        <h2>Simple caprese salad</h2>
-                                        <p>A spin on the standard <a href="https://en.wikipedia.org/wiki/Caprese_salad">caprese salad</a>.</p>
+                                        <h1>{titleparam}</h1>
                                     </section>
-                                    <section>
-                                        <p>Traditionally, the caprese salad calls for sliced tomatoes and slices of mozzarella. This version uses cherry
-                                            tomatoes, and either mozzarella balls or small cubes of the cheese. This gives you a salad that's a bit more
-                                            like a salad, and works better as a side item. In addition, the cherry tomatoes are a bit sweeter, which
-                brings a little more brightness to the dish.</p>
-                                        <p>The recipe below is designed to act as a guide, and not something to be followed prescriptively. Play with your
-                food! Adjust amounts based on your tastes.</p>
+                                    <br />
+                                    <section id="ingredients">
+                                        <h3 class="subtitle-color-dinamic">{post.type === 'recipe' ? 'INGREDIENTS' : ''}</h3>
+                                        <ul>
+                                            {this.createIngredientList(post.ingredients)}
+                                        </ul>
                                     </section>
                                 </header>
                                 <article>
-                                    <section id="ingredients">
-                                        <h3>Ingredients</h3>
-                                        <p>Serves 2 people</p>
-                                        <ul>
-                                            <li>10 cherry tomatoes, sliced in half</li>
-                                            <li>3 oz <em>fresh</em> mozzarella, cut to size to match cherry tomatoes</li>
-                                            <li>6 basil leaves, <a href="https://en.wikipedia.org/wiki/Chiffonade">chiffonade</a></li>
-                                            <li>2 Tbsp extra virgin olive oil, or to taste</li>
-                                            <li>1 Tbsp balsamic vinegar, or to taste</li>
-                                            <li>2 healthy pinches of Kosher salt, or to taste</li>
-                                            <li>6-8 grinds of pepper, or to taste</li>
-                                        </ul>
-                                    </section>
+
                                     <section>
-                                        <h3>Preparation</h3>
-                                        <ul>
-                                            <li>Pepare the tomatoes, mozzarella and basil as <a href="#ingredients">specified</a>, and place in a medium-sized
-                    bowl.</li>
-                                            <li>Season with salt and pepper.</li>
-                                            <li>Add extra virgin olive oil and balsamic. Toss to coat.</li>
-                                            <li>Adjust seasoning as needed.</li>
-                                            <li>Serve!</li>
-                                        </ul>
+                                        <h3 class="subtitle-color-dinamic">{post.type === 'recipe' ? 'PREPARATION' : ''}</h3>
+                                        {this.createVideo(post.video, showVideo)}
+                                        <p class="p-custom">{post.content}</p>
                                     </section>
+
                                 </article>
+
                             </div>
                         </div>
                     </Col>
                 </Row>
+
             </Grid>
 
         );
@@ -124,6 +151,9 @@ class PostDetails extends Component {
         return (
             <div class=" div-container-scroll">
                 {this.createPostDetail(this.state.post)}
+                <br />
+                <br />
+                <br />
                 <br />
                 <br />
                 <br />

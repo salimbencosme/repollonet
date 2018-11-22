@@ -1,5 +1,4 @@
 import firebase from '../common/firebase';
-import CryptoJS from 'crypto-js';
 
 export function saveContact(contactParam) {
 
@@ -128,7 +127,8 @@ export function getLastInfo(infoData) {
                 "title": infoData[key].title,
                 "type": infoData[key].type,
                 "user": infoData[key].user,
-                "viewed": infoData[key].viewed
+                "viewed": infoData[key].viewed,
+                "video": infoData[key].video
             };
         }
     }
@@ -153,7 +153,8 @@ export function getLastsInfo(infoData, quantity) {
                         "title": infoData[key].title,
                         "type": infoData[key].type,
                         "user": infoData[key].user,
-                        "viewed": infoData[key].viewed
+                        "viewed": infoData[key].viewed,
+                        "video": infoData[key].video
                     }
                 );
                 cont++;
@@ -180,7 +181,8 @@ export function getPostInfo(infoData, type) {
                         "title": infoData[key].title,
                         "type": infoData[key].type,
                         "user": infoData[key].user,
-                        "viewed": infoData[key].viewed
+                        "viewed": infoData[key].viewed,
+                        "video": infoData[key].video
                     }
                 );
             } else {
@@ -197,7 +199,8 @@ export function getPostInfo(infoData, type) {
                             "title": infoData[key].title,
                             "type": infoData[key].type,
                             "user": infoData[key].user,
-                            "viewed": infoData[key].viewed
+                            "viewed": infoData[key].viewed,
+                            "video": infoData[key].video
                         }
                     );
                 }
