@@ -55,4 +55,11 @@ export function decryptKey(valueEncrypted) {
 }
 
 
+export function beautyString(value, quantity) {
+  value = value.substring(0, quantity)
+  let words = value.substring(1, value.length).toLowerCase();
+  return value.charAt(0).toUpperCase() + "" + words;
+}
+
+
 export default function Utils() { };

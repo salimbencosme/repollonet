@@ -3,7 +3,7 @@ import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
 import { getPostAllPost, getPostInfo} from '../common/ApiServices';
-import { encryptKey } from '../common/Utils';
+import { encryptKey,beautyString } from '../common/Utils';
 
 class Post extends Component {
 
@@ -36,13 +36,6 @@ class Post extends Component {
         });
     }
 
-
-    beautyString(value, quantity) {
-        value = value.substring(0, quantity)
-        let words = value.substring(1, value.length).toLowerCase();
-        return value.charAt(0).toUpperCase() + "" + words;
-    }
-
     createCard(type, imageName, title, content,id) {
         let mainUrl = "/images/" + imageName;
         return (
@@ -51,8 +44,8 @@ class Post extends Component {
                     <div class={this.determineColorCard(type)}>
                         <img class="img-card" src={mainUrl} alt="Avatar" />
                         <div class="container-two">
-                            <h4><b>{this.beautyString(title, title.length)}</b></h4>
-                            <p class="white-color">{this.beautyString(content, 25) + '...'}</p>
+                            <h4><b>{beautyString(title, title.length)}</b></h4>
+                            <p class="white-color">{beautyString(content,80) + '...'}</p>
                         </div>
                     </div>
 
