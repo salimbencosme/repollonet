@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
-import { getPostAllPost, getPostInfo} from '../common/ApiServices';
-import { encryptKey,beautyString } from '../common/Utils';
+import { getPostAllPost, getPostInfo } from '../common/ApiServices';
+import { encryptKey, beautyString } from '../common/Utils';
 
 class Post extends Component {
 
@@ -14,13 +14,12 @@ class Post extends Component {
         }
     }
 
-    componentDidMount() {
+    handlerApiLogic(typecontentparam) {
         let currentComponent = this;
-        let typecontentparam = currentComponent.props.match.params.typecontent;
 
-        if(typecontentparam === 'all'){
+        if (typecontentparam === 'all') {
             themeHandler("default");
-        }else{
+        } else {
             themeHandler(typecontentparam);
         }
 
@@ -36,21 +35,31 @@ class Post extends Component {
         });
     }
 
-    createCard(type, imageName, title, content,id) {
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillReceiveProps()");
+        this.handlerApiLogic(nextProps.match.params.typecontent);
+    }
+
+    componentDidMount() {
+        console.log("COMPONENTDIDMOUNT()");
+        this.handlerApiLogic(this.props.match.params.typecontent);
+    }
+
+    createCard(type, imageName, title, content, id) {
         let mainUrl = "/images/" + imageName;
         return (
             <Col xs={4} md={4}>
-                <Link to={'/details/' + type + '/'+ encryptKey(id)}>
+                <Link to={'/details/' + type + '/' + encryptKey(id)}>
                     <div class={this.determineColorCard(type)}>
                         <img class="img-card" src={mainUrl} alt="Avatar" />
                         <div class="container-two">
                             <h4><b>{beautyString(title, title.length)}</b></h4>
-                            <p class="white-color">{beautyString(content,80) + '...'}</p>
+                            <p class="white-color">{beautyString(content, 80) + '...'}</p>
                         </div>
                     </div>
 
                 </Link>
-                <br/>
+                <br />
             </Col>
         );
     }
@@ -74,7 +83,7 @@ class Post extends Component {
     createCardList() {
         let list = [];
         this.state.posts.forEach(element => {
-            list.push(this.createCard(element.type, element.pic, element.title, element.content,element.id));
+            list.push(this.createCard(element.type, element.pic, element.title, element.content, element.id));
         });
 
         return list;
@@ -91,7 +100,7 @@ class Post extends Component {
 
                 </Grid>
 
-                <br/>
+                <br />
 
                 <br />
                 <br />

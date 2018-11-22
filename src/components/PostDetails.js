@@ -19,16 +19,24 @@ class PostDetails extends Component {
         }
     }
 
-    componentDidMount() {
+    handlerApiLogic(typeContent,id){
         let currentComponent = this;
-        themeHandler(this.props.match.params.typecontent);
-        getPostById(decryptKey(this.props.match.params.id)).on('value', function (data) {
+        themeHandler(typeContent);
+        getPostById(decryptKey(id)).on('value', function (data) {
             currentComponent.setState({
                 post: data.val()
             });
         }, function (error) {
             console.log("Error Recipes: " + error.code);
-        });
+        });   
+    }
+    
+    componentWillReceiveProps(nextProps) {
+        this.handlerApiLogic(nextProps.match.params.typecontent,nextProps.match.params.id);
+    }
+
+    componentDidMount() {
+        this.handlerApiLogic(this.props.match.params.typecontent,this.props.match.params.id);
     }
 
     getImageType(type) {
