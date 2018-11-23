@@ -128,7 +128,8 @@ export function getLastInfo(infoData) {
                 "type": infoData[key].type,
                 "user": infoData[key].user,
                 "viewed": infoData[key].viewed,
-                "video": infoData[key].video
+                "video": infoData[key].video,
+                "subtype": infoData[key].subtype
             };
         }
     }
@@ -154,7 +155,8 @@ export function getLastsInfo(infoData, quantity) {
                         "type": infoData[key].type,
                         "user": infoData[key].user,
                         "viewed": infoData[key].viewed,
-                        "video": infoData[key].video
+                        "video": infoData[key].video,
+                        "subtype": infoData[key].subtype
                     }
                 );
                 cont++;
@@ -182,7 +184,8 @@ export function getPostInfo(infoData, type) {
                         "type": infoData[key].type,
                         "user": infoData[key].user,
                         "viewed": infoData[key].viewed,
-                        "video": infoData[key].video
+                        "video": infoData[key].video,
+                        "subtype": infoData[key].subtype
                     }
                 );
             } else {
@@ -200,7 +203,8 @@ export function getPostInfo(infoData, type) {
                             "type": infoData[key].type,
                             "user": infoData[key].user,
                             "viewed": infoData[key].viewed,
-                            "video": infoData[key].video
+                            "video": infoData[key].video,
+                            "subtype": infoData[key].subtype
                         }
                     );
                 }

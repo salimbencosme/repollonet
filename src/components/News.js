@@ -7,7 +7,8 @@ import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
 import hands from '../resources/img/hands.png';
 import { Link } from "react-router-dom";
-import {beautyString,encryptKey} from '../common/Utils';
+import { beautyString, encryptKey } from '../common/Utils';
+import recipesdrinks from '../resources/img/recipes-drinks.png';
 
 class News extends Component {
 
@@ -78,10 +79,15 @@ class News extends Component {
         });
     }
 
-    getImageType(type) {
+
+    getImageType(type, subtype) {
         switch (type) {
             case 'recipe':
-                return recipes;
+                if (subtype === 'drink') {
+                    return recipesdrinks
+                } else {
+                    return recipes;
+                }
 
             case 'didyouknow':
                 return diduknow;
@@ -111,23 +117,23 @@ class News extends Component {
     }
 
 
-    getUrlType(type,id) {
+    getUrlType(type, id) {
         switch (type) {
             case 'recipe':
-                return '/details/recipe/'+encryptKey(id);
+                return '/details/recipe/' + encryptKey(id);
 
             case 'didyouknow':
-                return '/details/didyouknow/'+encryptKey(id);
+                return '/details/didyouknow/' + encryptKey(id);
 
             case 'tips':
-                return '/details/tips/'+encryptKey(id);
+                return '/details/tips/' + encryptKey(id);
 
             case 'information':
-                return '/details/information/'+encryptKey(id);
+                return '/details/information/' + encryptKey(id);
         }
     }
 
-    cardElement(id, title, content, type) {
+    cardElement(id, title, content, type,subtype) {
 
         if (title === undefined && content === undefined)
             return "";
@@ -135,18 +141,18 @@ class News extends Component {
         return (
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div class="our-services-wrapper mb-60">
-                <Link to={this.getUrlType(type,id)}>
-                    <div class="services-inner">
-                        <div class="our-services-img">
-                            <img className="icon-news" src={this.getImageType(type)} width="68px" alt="" />
+                    <Link to={this.getUrlType(type, id)}>
+                        <div class="services-inner">
+                            <div class="our-services-img">
+                                <img className="icon-news" src={this.getImageType(type)} width="68px" alt="" />
+                            </div>
+                            <div class="our-services-text">
+                                <h4>{this.getTitleType(type)}</h4>
+                                <h3>{title}</h3>
+                                <p>{beautyString(content, 200)}...</p>
+                            </div>
                         </div>
-                        <div class="our-services-text">
-                            <h4>{this.getTitleType(type)}</h4>
-                            <h3>{title}</h3>
-                            <p>{beautyString(content,200)}...</p>
-                        </div>
-                    </div>
-                </Link>
+                    </Link>
                 </div>
             </div>
         );
@@ -161,17 +167,17 @@ class News extends Component {
                 lastData.push(
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="our-services-wrapper mb-60">
-                        <Link to={this.getUrlType(element.type,element.id)}>
-                            <div class="services-inner">
-                                <div class="our-services-img">
-                                    <img className="icon-news" src={this.getImageType(element.type)} width="68px" alt="" />
+                            <Link to={this.getUrlType(element.type, element.id)}>
+                                <div class="services-inner">
+                                    <div class="our-services-img">
+                                        <img className="icon-news" src={this.getImageType(element.type,element.subtype)} width="68px" alt="" />
+                                    </div>
+                                    <div class="our-services-text">
+                                        <h4>{this.getTitleType(element.type)}</h4>
+                                        <h3>{element.title}</h3>
+                                        <p>{beautyString(element.content, 200)}...</p>
+                                    </div>
                                 </div>
-                                <div class="our-services-text">
-                                    <h4>{this.getTitleType(element.type)}</h4>
-                                    <h3>{element.title}</h3>
-                                    <p>{beautyString(element.content,200)}...</p>
-                                </div>
-                            </div>
                             </Link>
                         </div>
                     </div>
@@ -200,9 +206,9 @@ class News extends Component {
                 </div>
 
                 <div class="row scrollable-div">
-                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title, this.state.lastTips.content, this.state.lastTips.type)}
-                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content, this.state.lastDidUKnow.type)}
-                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content, this.state.lastRecipe.type)}
+                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title, this.state.lastTips.content, this.state.lastTips.type,this.state.lastTips.subtype)}
+                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content, this.state.lastDidUKnow.type, this.state.lastDidUKnow.subtype)}
+                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content, this.state.lastRecipe.type,this.state.lastRecipe.subtype)}
                     {this.cardElmentList(this.state.lastFeature)}
 
 

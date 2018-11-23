@@ -7,7 +7,7 @@ import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
-import hands from '../resources/img/hands.png';
+import recipesdrinks from '../resources/img/recipes-drinks.png';
 
 
 class PostDetails extends Component {
@@ -19,7 +19,7 @@ class PostDetails extends Component {
         }
     }
 
-    handlerApiLogic(typeContent,id){
+    handlerApiLogic(typeContent, id) {
         let currentComponent = this;
         themeHandler(typeContent);
         getPostById(decryptKey(id)).on('value', function (data) {
@@ -28,21 +28,25 @@ class PostDetails extends Component {
             });
         }, function (error) {
             console.log("Error Recipes: " + error.code);
-        });   
+        });
     }
-    
+
     componentWillReceiveProps(nextProps) {
-        this.handlerApiLogic(nextProps.match.params.typecontent,nextProps.match.params.id);
+        this.handlerApiLogic(nextProps.match.params.typecontent, nextProps.match.params.id);
     }
 
     componentDidMount() {
-        this.handlerApiLogic(this.props.match.params.typecontent,this.props.match.params.id);
+        this.handlerApiLogic(this.props.match.params.typecontent, this.props.match.params.id);
     }
 
-    getImageType(type) {
+    getImageType(type, subtype) {
         switch (type) {
             case 'recipe':
-                return recipes;
+                if (subtype === 'drink') {
+                    return recipesdrinks
+                } else {
+                    return recipes;
+                }
 
             case 'didyouknow':
                 return diduknow;
@@ -118,7 +122,7 @@ class PostDetails extends Component {
                     <Col xs={12} md={12}>
                         <div class="white-card-box">
                             <div class="pull-left">
-                                <img className="icon-news" src={this.getImageType(post.type)} width="68px" alt="" />
+                                <img className="icon-news" src={this.getImageType(post.type,post.subtype)} width="68px" alt="" />
                             </div>
 
                             {this.createPicture(post.pic)}
