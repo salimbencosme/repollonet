@@ -517,10 +517,17 @@ li::before {
 textarea {
     resize: none;
  }
+
+
+ .space-button{
+    margin-right: 8px;
+ }
+
 /*END CONTACT*/
 
 
 .img-welcome{
     width: 100%;
+    padding: 50px;
 }
 /*APP*/

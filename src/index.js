@@ -12,6 +12,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Subscribe from './components/Subscribe';
 import Donate from './components/Donate';
+import DonateThanks from './components/DonateThanks';
+import DonateWrong from './components/DonateWrong';
 import './resources/css/main.css';
 ReactDOM.render(
     <Router>
@@ -24,6 +26,8 @@ ReactDOM.render(
             <Route path="/contact" component={Contact} />
             <Route path="/subscribe" component={Subscribe} />
             <Route path="/donate" component={Donate} />
+            <Route path="/donatethanks" component={DonateThanks} />
+            <Route path="/donatewrong" component={DonateWrong} />
             <Route name="wrong-url" component={AppDefault} />
         </Switch>
         </Main>

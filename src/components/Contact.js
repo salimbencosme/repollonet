@@ -129,9 +129,11 @@ class Contact extends Component {
                                             </div>
 
 
-                                            <div class="text-center">
+                                            <div class="pull-right space-button">
                                                 <input type="submit" value="Send" class="btn btn-info btn-block rounded-0 py-2" />
                                             </div>
+                                            <br/>
+                                            <br/>
                                         </center>
 
                                     </div>
