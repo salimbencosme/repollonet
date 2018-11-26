@@ -94,7 +94,7 @@ class PostDetails extends Component {
     createIngredientList(ingredients) {
         let array = [];
         for (let value in ingredients) {
-            array.push(<li class="li-custom">{ingredients[value].name}</li>)
+            array.push(<li class="li-custom onlyList">{ingredients[value].name}</li>)
         }
         return array;
     }

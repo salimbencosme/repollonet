@@ -14,8 +14,6 @@ class Main extends Component {
 
             <div>
                 <Nav classparam="nav-bar-style-blue" />
-                <br/>
-                <br/>
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={12} md={8}>

@@ -95,7 +95,7 @@ body {
     background: var(--theme-third-color);
     padding: 5px;
     height: 100vh;
-    width: 104.5%
+    width: 105%;
 }
 
 .container {
@@ -385,7 +385,7 @@ a:hover {
 
 ul {list-style: none}
 
-li::before {
+.onlyList::before{
     content: "•";
     color: var(--theme-primary-color);
     display: inline-block;
@@ -397,6 +397,7 @@ li::before {
     border-bottom: 1px solid #eceff1;
     background: #eceff133;
     padding-bottom: 1%;
+    color: #666;
 }    
 
 .p-custom{
@@ -535,3 +536,16 @@ textarea {
     width:400px;
 }
 /*APP*/
+
+.navbar-default {
+    background-color: var(--theme-primary-color);
+    border-color:  var(--theme-primary-color);
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: none;
+    width: 101vw;
+}
