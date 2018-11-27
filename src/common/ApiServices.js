@@ -55,8 +55,10 @@ export function aboutInfo() {
             for (var key in data) {
                 aboutData = {
                     "content": data[key].content,
+                    "content_es": data[key].content_es,
                     "pic": data[key].pic,
-                    "title": data[key].title
+                    "title": data[key].title,
+                    "title_es": data[key].title_es
                 }
             }
             return aboutData;
@@ -78,6 +80,9 @@ export function writersInfo() {
                 writersData.push(
                     {
                         "description": data[key].description,
+                        "description_es": data[key].description_es,
+                        "title": data[key].title,
+                        "title_es": data[key].title_es,
                         "email": data[key].email,
                         "fullname": data[key].firstname + ' ' + data[key].lastname,
                         "phones": data[key].phones,
@@ -119,12 +124,14 @@ export function getLastInfo(infoData) {
             lastInfoData = {
                 "id": key,
                 "content": infoData[key].content,
+                "content_es": infoData[key].content_es,
                 "date_cretated": infoData[key].date_created,
                 "date_lastviewed": infoData[key].data_lastviewed,
                 "ingredients": infoData[key].ingredients,
                 "liked": infoData[key].liked,
                 "pic": infoData[key].pic,
                 "title": infoData[key].title,
+                "title_es": infoData[key].title_es,
                 "type": infoData[key].type,
                 "user": infoData[key].user,
                 "viewed": infoData[key].viewed,
@@ -146,12 +153,14 @@ export function getLastsInfo(infoData, quantity) {
                     {
                         "id": key,
                         "content": infoData[key].content,
+                        "content_es": infoData[key].content_es,
                         "date_cretated": infoData[key].date_created,
                         "date_lastviewed": infoData[key].data_lastviewed,
                         "ingredients": infoData[key].ingredients,
                         "liked": infoData[key].liked,
                         "pic": infoData[key].pic,
                         "title": infoData[key].title,
+                        "title_es": infoData[key].title_es,
                         "type": infoData[key].type,
                         "user": infoData[key].user,
                         "viewed": infoData[key].viewed,
@@ -175,12 +184,14 @@ export function getPostInfo(infoData, type) {
                     {
                         "id": key,
                         "content": infoData[key].content,
+                        "content_es": infoData[key].content_es,
                         "date_cretated": infoData[key].date_created,
                         "date_lastviewed": infoData[key].data_lastviewed,
                         "ingredients": infoData[key].ingredients,
                         "liked": infoData[key].liked,
                         "pic": infoData[key].pic,
                         "title": infoData[key].title,
+                        "title_es": infoData[key].title_es,
                         "type": infoData[key].type,
                         "user": infoData[key].user,
                         "viewed": infoData[key].viewed,
@@ -194,12 +205,14 @@ export function getPostInfo(infoData, type) {
                         {
                             "id": key,
                             "content": infoData[key].content,
+                            "content_es": infoData[key].content_es,
                             "date_cretated": infoData[key].date_created,
                             "date_lastviewed": infoData[key].data_lastviewed,
                             "ingredients": infoData[key].ingredients,
                             "liked": infoData[key].liked,
                             "pic": infoData[key].pic,
                             "title": infoData[key].title,
+                            "title_es": infoData[key].title_es,
                             "type": infoData[key].type,
                             "user": infoData[key].user,
                             "viewed": infoData[key].viewed,
