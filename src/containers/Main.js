@@ -5,7 +5,7 @@ import News from '../components/News';
 import Post from '../components/Post';
 import { Grid, Row, Col } from 'react-bootstrap';
 import LanguageSelector from '../common/LanguageSelector';
-import  {manageLanguage} from '../common/Utils';
+
 
 
 class Main extends Component {
@@ -30,7 +30,7 @@ class Main extends Component {
 
             <div>
 
-                <Nav classparam="nav-bar-style-blue" />
+                <Nav language={this.state.language} classparam="nav-bar-style-blue" />
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={12} md={8}>
@@ -41,7 +41,7 @@ class Main extends Component {
                         </Col>
                         <Col xs={12} md={4}>
                             <div className="panelNews">
-                                <News/>
+                                <News language={this.state.language} />
                             </div>
                         </Col>
                     </Row>

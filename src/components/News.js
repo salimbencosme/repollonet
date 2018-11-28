@@ -9,6 +9,7 @@ import hands from '../resources/img/hands.png';
 import { Link } from "react-router-dom";
 import { beautyString, encryptKey } from '../common/Utils';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
+import  {manageLanguage} from '../common/Utils';
 
 class News extends Component {
 
@@ -23,8 +24,13 @@ class News extends Component {
             lastTips: {},
             lastDidUKnow: {},
             lastRecipe: {},
-            lastFeature: []
+            lastFeature: [],
+            language:'english'
         }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({language:nextProps.language});
     }
 
     componentDidMount() {
@@ -33,6 +39,7 @@ class News extends Component {
         let totalDidUKnowCounter = 0;
         let totalFeaturesCounter = 0;
         let currentComponent = this;
+        currentComponent.setState({language:this.props.language});
 
         getPostByType('recipe').on('value', function (data) {
             totalRecipesCounter = countActiveInfo(data.val());
@@ -103,16 +110,16 @@ class News extends Component {
     getTitleType(type) {
         switch (type) {
             case 'recipe':
-                return 'LAST RECIPE';
+                return manageLanguage(this.state.language,'ÚLTIMA RECETA','LAST RECIPE');
 
             case 'didyouknow':
-                return 'LAST DID YOU KNOW?';
+                return manageLanguage(this.state.language,'ÚLTIMA SABIAS QUE?','LAST DID YOU KNOW?');
 
             case 'tips':
-                return 'LAST TIPS';
+                return manageLanguage(this.state.language,'ÚLTIMO CONSEJO','LAST TIPS');
 
             case 'information':
-                return 'NEW FEATURE';
+                return manageLanguage(this.state.language,'NUEVA FUNCIONALIDAD','NEW FEATURE');
         }
     }
 
@@ -191,16 +198,16 @@ class News extends Component {
     render() {
         return (
             <div>
-                <h2 class="title-news">SUMMARY CONTENT</h2>
+                <h2 class="title-news">{manageLanguage(this.state.language,'RESUMEN DEL CONTENIDO','SUMMARY CONTENT')}</h2>
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <ul id="menu">
-                            <li><Link to="/post/all"><span class="badge-name">Read all</span> <Badge>{this.state.totalTips + this.state.totalRecipes + this.state.totalDidUKnow + this.state.totalFeatures}</Badge></Link></li>
-                            <li><Link to="/post/tips"> <span class="badge-name">Tips</span> <Badge>{this.state.totalTips}</Badge></Link></li>
-                            <li><Link to="/post/didyouknow"><span class="badge-name">Did you know?</span> <Badge>{this.state.totalDidUKnow}</Badge></Link></li>
-                            <li><Link to="/post/recipe"><span class="badge-name">Recipes</span> <Badge>{this.state.totalRecipes}</Badge></Link></li>
-                            <li><Link to="/post/information"><span class="badge-name">New features</span> <Badge>{this.state.totalFeatures}</Badge></Link></li>
+                            <li><Link to="/post/all"><span class="badge-name">{manageLanguage(this.state.language,'Ver todos','Read all')}</span> <Badge>{this.state.totalTips + this.state.totalRecipes + this.state.totalDidUKnow + this.state.totalFeatures}</Badge></Link></li>
+                            <li><Link to="/post/tips"> <span class="badge-name">{manageLanguage(this.state.language,'Consejos','Tips')}</span> <Badge>{this.state.totalTips}</Badge></Link></li>
+                            <li><Link to="/post/didyouknow"><span class="badge-name">{manageLanguage(this.state.language,'Sabias que?','Did you know?')}</span> <Badge>{this.state.totalDidUKnow}</Badge></Link></li>
+                            <li><Link to="/post/recipe"><span class="badge-name">{manageLanguage(this.state.language,'Recetas','Recipes')}</span> <Badge>{this.state.totalRecipes}</Badge></Link></li>
+                            <li><Link to="/post/information"><span class="badge-name">{manageLanguage(this.state.language,'Nuevas funcionalidades','New features')}</span> <Badge>{this.state.totalFeatures}</Badge></Link></li>
                         </ul>
                     </div>
                 </div>
