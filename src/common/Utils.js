@@ -62,4 +62,14 @@ export function beautyString(value, quantity) {
 }
 
 
+export function manageLanguage(language,spanishValue, englishValue) {
+  switch (language) {
+      case 'spanish':
+          return spanishValue;
+      case 'english':
+          return englishValue;
+  }
+}
+
+
 export default function Utils() { };

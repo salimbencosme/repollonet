@@ -17,6 +17,8 @@ class Post extends Component {
         this.state = {
             posts: []
         }
+
+        console.log("constroctor: "+props.language);
     }
 
     handlerApiLogic(typecontentparam) {
@@ -41,10 +43,12 @@ class Post extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("CompoenentWillreciveProps: "+nextProps.language);
         this.handlerApiLogic(nextProps.match.params.typecontent);
     }
 
     componentDidMount() {
+        console.log("CompoenentDidMount: "+this.props.language);
         this.handlerApiLogic(this.props.match.params.typecontent);
     }
 

@@ -3,6 +3,7 @@ import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { aboutInfo, writersInfo } from '../common/ApiServices';
 import themeHandler from '../common/ThemeHandler';
 import LanguageSelector from '../common/LanguageSelector';
+import  {manageLanguage} from '../common/Utils';
 
 class About extends Component {
 
@@ -75,17 +76,6 @@ class About extends Component {
         this.setState({ language: languageSelected });
     }
 
-    manageLanguage(spanishValue, englishValue) {
-        switch (this.state.language) {
-            case 'spanish':
-                return spanishValue;
-                break;
-            case 'english':
-                return englishValue;
-                break;
-        }
-    }
-
     render() {
         return (
             <div>
@@ -94,7 +84,7 @@ class About extends Component {
                     <br />
                     <br />
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">{this.manageLanguage('NOSOSTROS','ABOUT')}</li>
+                        <li class="breadcrumb-item active">{manageLanguage(this.state.language,'NOSOSTROS','ABOUT')}</li>
                     </ol>
 
                     <Grid>
@@ -104,8 +94,8 @@ class About extends Component {
                             </Col>
 
                             <Col xs={6} md={6}>
-                                <h2 class="h-text">{this.manageLanguage(this.state.title_es,this.state.title)}</h2>
-                                <p>{this.manageLanguage(this.state.content_es,this.state.content)}</p>
+                                <h2 class="h-text">{manageLanguage(this.state.language,this.state.title_es,this.state.title)}</h2>
+                                <p>{manageLanguage(this.state.language,this.state.content_es,this.state.content)}</p>
 
                             </Col>
                         </Row>
