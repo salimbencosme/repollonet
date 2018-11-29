@@ -140,7 +140,7 @@ class News extends Component {
         }
     }
 
-    cardElement(id, title, content, type,subtype) {
+    cardElement(id, title, title_es, content,content_es, type,subtype) {
 
         if (title === undefined && content === undefined)
             return "";
@@ -155,8 +155,8 @@ class News extends Component {
                             </div>
                             <div class="our-services-text">
                                 <h4>{this.getTitleType(type)}</h4>
-                                <h3>{title}</h3>
-                                <p>{beautyString(content, 200)}...</p>
+                                <h3>{manageLanguage(this.state.language,title_es,title)}</h3>
+                                <p>{beautyString(manageLanguage(this.state.language,content_es,content), 200)}...</p>
                             </div>
                         </div>
                     </Link>
@@ -181,8 +181,8 @@ class News extends Component {
                                     </div>
                                     <div class="our-services-text">
                                         <h4>{this.getTitleType(element.type)}</h4>
-                                        <h3>{element.title}</h3>
-                                        <p>{beautyString(element.content, 200)}...</p>
+                                        <h3>{manageLanguage(this.state.language,element.title_es,element.title)}</h3>
+                                        <p>{beautyString(manageLanguage(this.state.language,element.content_es,element.content), 200)}...</p>
                                     </div>
                                 </div>
                             </Link>
@@ -213,9 +213,9 @@ class News extends Component {
                 </div>
 
                 <div class="row scrollable-div">
-                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title, this.state.lastTips.content, this.state.lastTips.type,this.state.lastTips.subtype)}
-                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title, this.state.lastDidUKnow.content, this.state.lastDidUKnow.type, this.state.lastDidUKnow.subtype)}
-                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.content, this.state.lastRecipe.type,this.state.lastRecipe.subtype)}
+                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title,this.state.lastTips.title_es, this.state.lastTips.content,this.state.lastTips.content_es, this.state.lastTips.type,this.state.lastTips.subtype)}
+                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title,this.state.lastDidUKnow.title_es, this.state.lastDidUKnow.content,this.state.lastDidUKnow.content_es, this.state.lastDidUKnow.type, this.state.lastDidUKnow.subtype)}
+                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title,this.state.lastRecipe.title_es, this.state.lastRecipe.content,this.state.lastRecipe.content_es, this.state.lastRecipe.type,this.state.lastRecipe.subtype)}
                     {this.cardElmentList(this.state.lastFeature)}
 
 
