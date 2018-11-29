@@ -10,7 +10,7 @@ import LanguageSelector from '../common/LanguageSelector';
 
 class Main extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -21,7 +21,7 @@ class Main extends Component {
 
     selectGlobalLanguage(languageSelected) {
         this.setState({ language: languageSelected });
-        console.log("CAMBIO EL STATUS GLOBAL: "+this.state.language);
+        console.log("CAMBIO EL STATUS GLOBAL: " + this.state.language);
     }
 
     render() {
@@ -34,10 +34,11 @@ class Main extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={12} md={8}>
-                        <LanguageSelector selectGlobalLanguage={this.selectGlobalLanguage} />
-                        <br/>  
-                        {this.props.children}
-               <br/>      
+                            <LanguageSelector selectGlobalLanguage={this.selectGlobalLanguage} />
+                            <br />
+
+                            {React.cloneElement(this.props.children, { language: this.state.language })}
+                            <br />
                         </Col>
                         <Col xs={12} md={4}>
                             <div className="panelNews">
@@ -50,10 +51,10 @@ class Main extends Component {
 
             </div>
 
-                );
-        
-            }
-        
-        
-        }
+        );
+
+    }
+
+
+}
 export default Main;

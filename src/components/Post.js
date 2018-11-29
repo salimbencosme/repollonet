@@ -9,13 +9,15 @@ import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
+import  {manageLanguage} from '../common/Utils';
 
 class Post extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: [],
+            language:'english'
         }
 
         console.log("constroctor: "+props.language);
@@ -44,11 +46,13 @@ class Post extends Component {
 
     componentWillReceiveProps(nextProps) {
         console.log("CompoenentWillreciveProps: "+nextProps.language);
+        this.setState({language:nextProps.language});
         this.handlerApiLogic(nextProps.match.params.typecontent);
     }
 
     componentDidMount() {
         console.log("CompoenentDidMount: "+this.props.language);
+        this.setState({language:this.props.language});
         this.handlerApiLogic(this.props.match.params.typecontent);
     }
 
@@ -72,7 +76,7 @@ class Post extends Component {
         }
     }
 
-    createCard(type, imageName, title, content, id, subtype) {
+    createCard(type, imageName, title,title_es, content,content_es, id, subtype) {
         let mainUrl = "/images/" + imageName;
         return (
             <Col xs={4} md={4}>
@@ -81,8 +85,8 @@ class Post extends Component {
                         <img class="img-card" src={mainUrl} alt="Avatar" />
                        
                         <div class="container-two">
-                            <h4><b>{beautyString(title, title.length)}</b></h4>
-                            <p class="white-color">{beautyString(content, 80) + '...'}</p>
+                            <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), manageLanguage(this.state.language,title_es,title).length)}</b></h4>
+                            <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es,content), 80) + '...'}</p>
                         </div>
                         <div class="pull-left">
                             <img className="img-post-icon" src={this.getImageType(type, subtype)} width="68px" alt="" />
