@@ -45,12 +45,14 @@ class Post extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log(this.props.children);
         console.log("CompoenentWillreciveProps: "+nextProps.language);
         this.setState({language:nextProps.language});
         this.handlerApiLogic(nextProps.match.params.typecontent);
     }
 
     componentDidMount() {
+        console.log(this.props.children);
         console.log("CompoenentDidMount: "+this.props.language);
         this.setState({language:this.props.language});
         this.handlerApiLogic(this.props.match.params.typecontent);

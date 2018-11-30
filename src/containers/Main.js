@@ -26,6 +26,21 @@ class Main extends Component {
 
     render() {
 
+        /*
+        const children = React.cloneElement(this.props.children, { language: this.state.language , salim : 'bencosme de la rosa Salim'});
+        */
+
+       const children = React.Children.map(this.props.children, child => {
+        return React.cloneElement(child, {
+          someData: this.state.language,
+          someState: this.state.language,
+          someFunction: x => x
+        });
+      });
+
+        console.log(this.props.children);
+        console.log(children);
+
         return (
 
             <div>
@@ -37,7 +52,7 @@ class Main extends Component {
                             <LanguageSelector selectGlobalLanguage={this.selectGlobalLanguage} />
                             <br />
 
-                            {React.cloneElement(this.props.children, { language: this.state.language })}
+                            {children}
                             <br />
                         </Col>
                         <Col xs={12} md={4}>

@@ -25,6 +25,9 @@ class About extends Component {
     componentDidMount() {
         themeHandler("default");
 
+        console.log(this);
+        console.log(this.props);
+
         aboutInfo().then((data) => {
             this.setState({
                 title: data.title,
