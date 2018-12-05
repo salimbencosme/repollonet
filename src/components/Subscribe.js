@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import {saveSubscribe} from '../common/ApiServices';
-import {currentDateWithFormat} from '../common/Utils';
+import {currentDateWithFormat,manageLanguage,getSelectedLanguage} from '../common/Utils';
 import themeHandler from '../common/ThemeHandler';
 
 class Subscribe extends Component{
@@ -10,15 +10,21 @@ class Subscribe extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            language:'english'
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({language:getSelectedLanguage()});
+    }
+
     componentDidMount() {
         themeHandler("default");
+        this.setState({language:getSelectedLanguage()});
     }
 
     handleChange(event){
@@ -45,9 +51,9 @@ class Subscribe extends Component{
                 }
             );
     
-            NotificationManager.success('Successfully subscribed');   
+            NotificationManager.success(manageLanguage(this.state.language,'Suscrito exitosamente','Successfully subscribed'));   
         }catch(e){
-            NotificationManager.error('Could not save the information');
+            NotificationManager.error(manageLanguage(this.state.language,'No se pudo guardar la información.','Could not save the information'));
         }
     
     }
@@ -82,8 +88,8 @@ class Subscribe extends Component{
                             <div class="card-contact border-primary rounded-0">
                                 <div class="card-header p-0">
                                     <div class="bg-info text-white text-center py-2">
-                                        <h3><i class="fa fa-envelope"></i> Subscribe</h3>
-                                        <p class="m-0 color-white">We want to inform you about the new content and the new changes in the application</p>
+                                        <h3><i class="fa fa-envelope"></i> {manageLanguage(this.state.language,'Suscribir','Subscribe')}</h3>
+                                        <p class="m-0 color-white">{manageLanguage(this.state.language,'Queremos informarle sobre el nuevo contenido y los nuevos cambios en la aplicación.','We want to inform you about the new content and the new changes in the application.')}</p>
                                     </div>
                                 </div>
 
@@ -97,12 +103,12 @@ class Subscribe extends Component{
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                             </div>
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" value={this.state.email} onChange={this.handleChange} required />
+                                            <input type="email" class="form-control" id="email" name="email" placeholder={manageLanguage(this.state.language,'ejemplo@gmail.com','example@gmail.com')} value={this.state.email} onChange={this.handleChange} required />
                                         </div>
                                     </div>
 
                                     <div class="pull-right space-button">
-                                        <input type="submit" value="Subscribe" class="btn btn-info btn-block rounded-0 py-2" />
+                                        <input type="submit" value={manageLanguage(this.state.language,'Suscribir','Subscribe')} class="btn btn-info btn-block rounded-0 py-2" />
                                     </div>
                                     <br/>
                                     <br/>

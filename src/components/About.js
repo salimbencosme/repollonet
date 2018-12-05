@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { aboutInfo, writersInfo } from '../common/ApiServices';
 import themeHandler from '../common/ThemeHandler';
-import LanguageSelector from '../common/LanguageSelector';
-import  {manageLanguage} from '../common/Utils';
+import  {manageLanguage,getSelectedLanguage} from '../common/Utils';
 
 class About extends Component {
 
@@ -19,15 +18,10 @@ class About extends Component {
             writers: [{}],
             language: 'english'
         }
-        this.selectGlobalLanguage = this.selectGlobalLanguage.bind(this);
     }
 
     componentDidMount() {
         themeHandler("default");
-
-        console.log(this);
-        console.log(this.props);
-
         aboutInfo().then((data) => {
             this.setState({
                 title: data.title,
@@ -43,6 +37,12 @@ class About extends Component {
                 writers: data
             });
         });
+
+        this.setState({language:getSelectedLanguage()});
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({language:getSelectedLanguage()});
     }
 
     showWritersInformation() {
@@ -58,8 +58,8 @@ class About extends Component {
                         <img class="card-img-top img-writer" src={this.state.writers[x].pic} alt="" />
                         <div class="card-body">
                             <h4 class="card-title">{this.state.writers[x].fullname}</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">{this.state.writers[x].title}</h6>
-                            <p class="card-text p-about black-color">{this.state.writers[x].description}</p>
+                            <h6 class="card-subtitle mb-2 text-muted">{manageLanguage(this.state.language,this.state.writers[x].title_es,this.state.writers[x].title)}</h6>
+                            <p class="card-text p-about black-color">{manageLanguage(this.state.language,this.state.writers[x].description_es,this.state.writers[x].description)}</p>
                             <p class="card-text p-about black-color">{this.state.writers[x].phones}</p>
                         </div>
                         <div class="card-footer">
@@ -82,7 +82,6 @@ class About extends Component {
     render() {
         return (
             <div>
-                <LanguageSelector selectGlobalLanguage={this.selectGlobalLanguage} />
                 <div class="div-container-scroll">
                     <br />
                     <br />

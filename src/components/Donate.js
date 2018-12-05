@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import themeHandler from '../common/ThemeHandler';
 import img from '../resources/img/donation.png';
+import  {manageLanguage,getSelectedLanguage} from '../common/Utils';
 
 var pcustom = {
     'font-size': '2em',
@@ -11,10 +12,18 @@ class Donate extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            language:'english'
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({language:getSelectedLanguage()});
     }
 
     componentDidMount() {
         themeHandler("default");
+        this.setState({language:getSelectedLanguage()});
     }
 
     render() {
@@ -29,11 +38,11 @@ class Donate extends Component {
                     <img className="img-small" src={img} />
 
                     <p style={pcustom}>
-                        Help us improve this project so that it is always available and has a team of writers improving and entering new recipes, tips, Did you know and other information.
+                        {manageLanguage(this.state.language,'Ayúdenos a mejorar este proyecto para que esté siempre disponible y tenga un equipo de escritores que estén mejorando e ingresando nuevas recetas, consejos, ¿Sabía que? y otra información.','Help us improve this project so that it is always available and has a team of writers improving and entering new recipes, tips, Did you know and other information.')}
                 </p>
 
                     <p style={pcustom}>
-                        Your contribution can help this project reach more people and in the best of cases, change the lives of others.
+                    {manageLanguage(this.state.language,'Su contribución puede ayudar a este proyecto a llegar a más personas y, en el mejor de los casos, cambiar la vida de los demás.','Your contribution can help this project reach more people and in the best of cases, change the lives of others.')}
                 </p>
 
                     <br />
