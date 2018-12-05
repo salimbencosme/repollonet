@@ -21,38 +21,35 @@ class Main extends Component {
 
     selectGlobalLanguage(languageSelected) {
         this.setState({ language: languageSelected });
-        console.log("CAMBIO EL STATUS GLOBAL: " + this.state.language);
+        localStorage.setItem('language-storage', languageSelected);
+    }
+
+    componentDidMount(){
+
+        if(localStorage.getItem('language-storage') != null){
+            this.setState({ language: localStorage.getItem('language-storage') });
+        }else{
+            localStorage.setItem('language-storage', this.state.language);
+        }
     }
 
     render() {
-
-        /*
-        const children = React.cloneElement(this.props.children, { language: this.state.language , salim : 'bencosme de la rosa Salim'});
-        */
-
-       const children = React.Children.map(this.props.children, child => {
-        return React.cloneElement(child, {
-          someData: this.state.language,
-          someState: this.state.language,
-          someFunction: x => x
-        });
-      });
-
-        console.log(this.props.children);
-        console.log(children);
+        
+        const childrenWithExtraProp = React.Children.map(this.props.children, child => {
+            return React.cloneElement(child, {
+              language: this.state.language
+            });
+          });
 
         return (
-
             <div>
-
                 <Nav language={this.state.language} classparam="nav-bar-style-blue" />
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={12} md={8}>
                             <LanguageSelector selectGlobalLanguage={this.selectGlobalLanguage} />
                             <br />
-
-                            {children}
+                            {childrenWithExtraProp}
                             <br />
                         </Col>
                         <Col xs={12} md={4}>

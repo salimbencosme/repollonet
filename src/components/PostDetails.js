@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import themeHandler from '../common/ThemeHandler';
 import { getPostById } from '../common/ApiServices';
-import { decryptKey } from '../common/Utils';
+import { decryptKey,getSelectedLanguage } from '../common/Utils';
 import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
@@ -15,7 +15,8 @@ class PostDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: {}
+            post: {},
+            language:'english'
         }
     }
 
@@ -32,10 +33,12 @@ class PostDetails extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        this.setState({language:getSelectedLanguage()});
         this.handlerApiLogic(nextProps.match.params.typecontent, nextProps.match.params.id);
     }
 
     componentDidMount() {
+        this.setState({language:getSelectedLanguage()});
         this.handlerApiLogic(this.props.match.params.typecontent, this.props.match.params.id);
     }
 

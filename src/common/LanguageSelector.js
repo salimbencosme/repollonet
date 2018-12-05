@@ -21,10 +21,22 @@ class LanguageSelector extends Component {
         this.selectLanguage = this.selectLanguage.bind(this);
     }
 
+    componentDidMount(){
+        
+        if(localStorage.getItem('language-storage') != null){
+            this.setLanguage(localStorage.getItem('language-storage'));
+        }
+    }
+
     selectLanguage(event) {
         console.log("ENTROQ");
         console.log(event.target.id);
-        switch (event.target.id) {
+        this.setLanguage(event.target.id);
+    }
+
+    setLanguage(languageParam){
+
+        switch (languageParam) {
         
             case 'english':
                 this.setState(
@@ -43,7 +55,7 @@ class LanguageSelector extends Component {
                 );
                 break
         }
-        this.props.selectGlobalLanguage(event.target.id);
+        this.props.selectGlobalLanguage(languageParam);
     }
 
     render() {

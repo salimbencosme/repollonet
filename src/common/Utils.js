@@ -71,5 +71,8 @@ export function manageLanguage(language,spanishValue, englishValue) {
   }
 }
 
+export function getSelectedLanguage() {
+    return localStorage.getItem('language-storage');
+}
 
 export default function Utils() { };

@@ -9,7 +9,7 @@ import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
-import  {manageLanguage} from '../common/Utils';
+import  {manageLanguage,getSelectedLanguage} from '../common/Utils';
 
 class Post extends Component {
 
@@ -19,8 +19,6 @@ class Post extends Component {
             posts: [],
             language:'english'
         }
-
-        console.log("constroctor: "+props.language);
     }
 
     handlerApiLogic(typecontentparam) {
@@ -45,16 +43,12 @@ class Post extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(this.props.children);
-        console.log("CompoenentWillreciveProps: "+nextProps.language);
-        this.setState({language:nextProps.language});
+        this.setState({language:getSelectedLanguage()});
         this.handlerApiLogic(nextProps.match.params.typecontent);
     }
 
     componentDidMount() {
-        console.log(this.props.children);
-        console.log("CompoenentDidMount: "+this.props.language);
-        this.setState({language:this.props.language});
+        this.setState({language:getSelectedLanguage()});
         this.handlerApiLogic(this.props.match.params.typecontent);
     }
 
@@ -87,7 +81,7 @@ class Post extends Component {
                         <img class="img-card" src={mainUrl} alt="Avatar" />
                        
                         <div class="container-two">
-                            <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), manageLanguage(this.state.language,title_es,title).length)}</b></h4>
+                            <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), (manageLanguage(this.state.language,title_es,title)).length)}</b></h4>
                             <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es,content), 80) + '...'}</p>
                         </div>
                         <div class="pull-left">
@@ -120,11 +114,11 @@ class Post extends Component {
     }
 
     createCardList() {
+        console.log("ENTRO A CREATECARDLIST()");
         let list = [];
         this.state.posts.forEach(element => {
-            list.push(this.createCard(element.type, element.pic, element.title, element.content, element.id, element.subtype));
+            list.push(this.createCard(element.type, element.pic, element.title, element.title_es, element.content,element.content_es, element.id, element.subtype));
         });
-
         return list;
     }
 
