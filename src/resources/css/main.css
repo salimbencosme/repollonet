@@ -456,6 +456,10 @@ ul {
     color: black;
 }
 
+.p-text{
+    font-size: 19px;
+}
+
 /*END ABOUT US*/
 
 /*CONTACT*/
@@ -547,3 +551,4 @@ textarea {
     border-bottom: 5px solid var(--theme-primary-color);
     padding-bottom: 6px;
 }
+

@@ -149,7 +149,7 @@ class App extends Component {
                 <center>
                   <img class="card-img-top" src={mark} style={imgStyle} />
                   <div class="card-body">
-                    <p class="card-text">{manageLanguage(this.state.language, 'Este proyecto tiene como fin educarte para que mejores tu salud por medio de lo que comes.', 'This project aims to educate you to improve your health through what you eat.')}</p>
+                    <p class="card-text">{manageLanguage(this.state.language, 'Este proyecto tiene como fin educar para mejorar la salud por medio de la comida.', 'This project aims to educate to improve health through food.')}</p>
                     <Link className="btn btn-primary" to="/about" style={aboutButton} >{manageLanguage(this.state.language, 'Conocer más', 'Know more')}</Link>
                   </div>
                 </center>
