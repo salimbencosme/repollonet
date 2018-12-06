@@ -5,7 +5,7 @@ import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
-import hands from '../resources/img/hands.png';
+import mark from '../resources/img/mark.png';
 import { Link } from "react-router-dom";
 import { beautyString, encryptKey } from '../common/Utils';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
@@ -219,7 +219,7 @@ class News extends Component {
                     {this.cardElmentList(this.state.lastFeature)}
 
 
-                    <img id="img-hands" className="icon-news" src={hands} width="68px" alt="" title="Scroll to see more information" />
+                    <img id="img-hands" className="icon-news" src={mark} width="68px" alt="" title="Scroll to see more information" />
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <br /><br /><br /><br />

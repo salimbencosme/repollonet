@@ -75,6 +75,7 @@ class Post extends Component {
     createCard(type, imageName, title,title_es, content,content_es, id, subtype) {
         let mainUrl = "/images/" + imageName;
         return (
+            
             <Col xs={4} md={4}>
                 <Link to={'/details/' + type + '/' + encryptKey(id)}>
                     <div class={this.determineColorCard(type)}>
@@ -93,7 +94,9 @@ class Post extends Component {
 
                 </Link>
                 <br />
+               
             </Col>
+     
         );
     }
 
