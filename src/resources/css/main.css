@@ -419,6 +419,7 @@ ul {
     width: 100% !important;
     background: white;
     padding: 3%;
+    border: 5px solid #00000012;
 }
 
 .breadcrumb {
