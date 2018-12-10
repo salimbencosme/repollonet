@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "2942bd3fb81b3b133bd1cb9fe8f31b1f",
-    "url": "/repollonet/static/media/recipes-drinks.2942bd3f.png"
+    "revision": "c0d3c94cd6112550c51d7d1ed13b9da1",
+    "url": "/repollonet/static/media/notification.c0d3c94c.eot"
   },
   {
-    "revision": "f73df7e2d7cbf4692f4d",
-    "url": "/repollonet/static/css/main.cfcafafc.chunk.css"
+    "revision": "8f55a825942b8cfa8781",
+    "url": "/repollonet/static/css/main.63f09116.chunk.css"
   },
   {
     "revision": "81288256423164f8ecef06062ab9b81d",
     "url": "/repollonet/static/media/cancel.81288256.png"
   },
   {
-    "revision": "2274777e5352796f3698",
-    "url": "/repollonet/static/js/1.2274777e.chunk.js"
+    "revision": "43ce8499ad4f3f6b6d21",
+    "url": "/repollonet/static/js/1.43ce8499.chunk.js"
   },
   {
     "revision": "9f7cb4b96abb45d5b9b4",
@@ -36,20 +36,20 @@ self.__precacheManifest = [
     "url": "/repollonet/static/media/feature.a10b6e29.png"
   },
   {
-    "revision": "f73df7e2d7cbf4692f4d",
-    "url": "/repollonet/static/js/main.f73df7e2.chunk.js"
+    "revision": "2942bd3fb81b3b133bd1cb9fe8f31b1f",
+    "url": "/repollonet/static/media/recipes-drinks.2942bd3f.png"
   },
   {
     "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
     "url": "/repollonet/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "651771e1df95c807c99608188d0a4287",
-    "url": "/repollonet/static/media/notification.651771e1.woff"
+    "revision": "8f55a825942b8cfa8781",
+    "url": "/repollonet/static/js/main.8f55a825.chunk.js"
   },
   {
-    "revision": "c0d3c94cd6112550c51d7d1ed13b9da1",
-    "url": "/repollonet/static/media/notification.c0d3c94c.eot"
+    "revision": "651771e1df95c807c99608188d0a4287",
+    "url": "/repollonet/static/media/notification.651771e1.woff"
   },
   {
     "revision": "0b4ac1dc75df35e169b70d7719afe4cc",
@@ -60,19 +60,31 @@ self.__precacheManifest = [
     "url": "/repollonet/static/media/notification.5bee74ca.svg"
   },
   {
+    "revision": "1a2d2ae9c2f5e8a2a62f08036129349b",
+    "url": "/repollonet/static/media/repollo-welcome.1a2d2ae9.png"
+  },
+  {
+    "revision": "2754154d46327b2d1bc663887f936722",
+    "url": "/repollonet/static/media/repollo-bienvenido.2754154d.png"
+  },
+  {
     "revision": "399d66fc571618130cf0a72c9a68ac5c",
     "url": "/repollonet/static/media/donation.399d66fc.png"
+  },
+  {
+    "revision": "82e429dfc2233eb7cdda6193dc04c245",
+    "url": "/repollonet/static/media/donation-red.82e429df.png"
   },
   {
     "revision": "f66282f51145bf866410a0374cde6248",
     "url": "/repollonet/static/media/thankyou.f66282f5.png"
   },
   {
-    "revision": "2274777e5352796f3698",
-    "url": "/repollonet/static/css/1.effbc563.chunk.css"
+    "revision": "43ce8499ad4f3f6b6d21",
+    "url": "/repollonet/static/css/1.f59b4bb6.chunk.css"
   },
   {
-    "revision": "096add1a1ddec45b47706b177db15646",
+    "revision": "58915272a636f052fe694cc9f59ef6ef",
     "url": "/repollonet/index.html"
   }
 ];
