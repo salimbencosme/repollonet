@@ -394,9 +394,6 @@ ul {
 }
 
 .p-custom {
-    text-decoration: underline;
-    text-decoration-color: #eceff1;
-    text-decoration-line: overline;
     background-color: #eceff133;
     padding: 2%;
 }
