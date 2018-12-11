@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import themeHandler from '../common/ThemeHandler';
 import { getPostById } from '../common/ApiServices';
-import { decryptKey,getSelectedLanguage,manageLanguage } from '../common/Utils';
+import { decryptKey, getSelectedLanguage, manageLanguage } from '../common/Utils';
 import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
-
+import Markdown from 'react-markdown';
 
 class PostDetails extends Component {
 
@@ -16,7 +16,7 @@ class PostDetails extends Component {
         super(props);
         this.state = {
             post: {},
-            language:'english'
+            language: 'english'
         }
     }
 
@@ -33,12 +33,12 @@ class PostDetails extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({language:getSelectedLanguage()});
+        this.setState({ language: getSelectedLanguage() });
         this.handlerApiLogic(nextProps.match.params.typecontent, nextProps.match.params.id);
     }
 
     componentDidMount() {
-        this.setState({language:getSelectedLanguage()});
+        this.setState({ language: getSelectedLanguage() });
         this.handlerApiLogic(this.props.match.params.typecontent, this.props.match.params.id);
     }
 
@@ -97,25 +97,22 @@ class PostDetails extends Component {
     createIngredientList(ingredients) {
         let array = [];
         for (let value in ingredients) {
-            array.push(<li class="li-custom onlyList">{manageLanguage(this.state.language,ingredients[value].name_es,ingredients[value].name)}</li>)
+            array.push(<li class="li-custom onlyList">{manageLanguage(this.state.language, ingredients[value].name_es, ingredients[value].name)}</li>)
         }
         return array;
     }
-
 
     createPostDetail(post) {
 
         let titleparam = "";
         if (post.title != undefined) {
-            titleparam = (manageLanguage(this.state.language,post.title_es,post.title)).toString().toUpperCase();
+            titleparam = (manageLanguage(this.state.language, post.title_es, post.title)).toString().toUpperCase();
         }
 
         let showVideo = false;
         if (post.video != undefined && post.video != "") {
             showVideo = true;
         }
-
-
 
         return (
             <Grid>
@@ -125,7 +122,7 @@ class PostDetails extends Component {
                     <Col xs={12} md={12}>
                         <div class="white-card-box">
                             <div class="pull-left">
-                                <img className="icon-news" src={this.getImageType(post.type,post.subtype)} width="68px" alt="" />
+                                <img className="icon-news" src={this.getImageType(post.type, post.subtype)} width="68px" alt="" />
                             </div>
 
                             {this.createPicture(post.pic)}
@@ -136,7 +133,7 @@ class PostDetails extends Component {
                                     </section>
                                     <br />
                                     <section id="ingredients">
-                                        <h3 class="subtitle-color-dinamic">{post.type === 'recipe' ? manageLanguage(this.state.language,'INGREDIENTES','INGREDIENTS') : ''}</h3>
+                                        <h3 class="subtitle-color-dinamic">{post.type === 'recipe' ? manageLanguage(this.state.language, 'INGREDIENTES', 'INGREDIENTS') : ''}</h3>
                                         <ul>
                                             {this.createIngredientList(post.ingredients)}
                                         </ul>
@@ -145,9 +142,9 @@ class PostDetails extends Component {
                                 <article>
 
                                     <section>
-                                        <h3 class="subtitle-color-dinamic">{post.type === 'recipe' ? manageLanguage(this.state.language,'PREPARACIÓN','PREPARATION') : ''}</h3>
+                                        <h3 class="subtitle-color-dinamic">{post.type === 'recipe' ? manageLanguage(this.state.language, 'PREPARACIÓN', 'PREPARATION') : ''}</h3>
                                         {this.createVideo(post.video, showVideo)}
-                                        <p class="p-custom">{manageLanguage(this.state.language,post.content_es,post.content)}</p>
+                                        <p class="p-custom"><Markdown escapeHtml={false} source={manageLanguage(this.state.language, post.content_es, post.content)} /></p>
                                     </section>
 
                                 </article>

@@ -83,7 +83,7 @@ class Post extends Component {
                        
                         <div class="container-two">
                             <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), (manageLanguage(this.state.language,title_es,title)).length)}</b></h4>
-                            <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es,content), 80) + '...'}</p>
+                            <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es.replace(/<[^>]*>/g, ''),content.replace(/<[^>]*>/g, '')), 80) + '...'}</p>
                         </div>
                         <div class="pull-left">
                             <img className="img-post-icon" src={this.getImageType(type, subtype)} width="68px" alt="" />
