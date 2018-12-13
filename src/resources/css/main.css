@@ -566,3 +566,12 @@ textarea {
 #custom-card {
     padding: 0.5%;
 }
+
+.icon-back{
+    width: 40px;
+    position: relative;
+    right: -13px;
+    bottom: -2px;
+    z-index: 10000000000000000000000000000000000;
+    width: 30px;
+}

@@ -8,6 +8,7 @@ import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
+import back from '../resources/img/back.png';
 import Markdown from 'react-markdown';
 
 class PostDetails extends Component {
@@ -117,6 +118,9 @@ class PostDetails extends Component {
         return (
             <Grid>
                 <Row className="show-grid">
+                <div class="pull-left">
+                <img className="icon-back" src={back} width="68px" alt="" />
+                </div>
                     <br />
                     <br />
                     <Col xs={12} md={12}>
