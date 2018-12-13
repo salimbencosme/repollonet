@@ -9,7 +9,7 @@ import mark from '../resources/img/mark.png';
 import { Link } from "react-router-dom";
 import { beautyString, encryptKey } from '../common/Utils';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
-import  {manageLanguage} from '../common/Utils';
+import  {manageLanguage,getTextWithoutHtmlTags} from '../common/Utils';
 
 class News extends Component {
 
@@ -182,7 +182,7 @@ class News extends Component {
                                     <div class="our-services-text">
                                         <h4>{this.getTitleType(element.type)}</h4>
                                         <h3>{manageLanguage(this.state.language,element.title_es,element.title)}</h3>
-                                        <p>{beautyString(manageLanguage(this.state.language,element.content_es,element.content), 200)}...</p>
+                                        <p>{beautyString(manageLanguage(this.state.language,getTextWithoutHtmlTags(element.content_es),getTextWithoutHtmlTags(element.content)), 200)}...</p>
                                     </div>
                                 </div>
                             </Link>
@@ -213,9 +213,9 @@ class News extends Component {
                 </div>
 
                 <div class="row scrollable-div">
-                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title,this.state.lastTips.title_es, this.state.lastTips.content,this.state.lastTips.content_es, this.state.lastTips.type,this.state.lastTips.subtype)}
-                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title,this.state.lastDidUKnow.title_es, this.state.lastDidUKnow.content,this.state.lastDidUKnow.content_es, this.state.lastDidUKnow.type, this.state.lastDidUKnow.subtype)}
-                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title,this.state.lastRecipe.title_es, this.state.lastRecipe.content,this.state.lastRecipe.content_es, this.state.lastRecipe.type,this.state.lastRecipe.subtype)}
+                    {this.cardElement(this.state.lastTips.id, this.state.lastTips.title,this.state.lastTips.title_es, getTextWithoutHtmlTags(this.state.lastTips.content),getTextWithoutHtmlTags(this.state.lastTips.content_es), this.state.lastTips.type,this.state.lastTips.subtype)}
+                    {this.cardElement(this.state.lastDidUKnow.id, this.state.lastDidUKnow.title,this.state.lastDidUKnow.title_es, getTextWithoutHtmlTags(this.state.lastDidUKnow.content),getTextWithoutHtmlTags(this.state.lastDidUKnow.content_es), this.state.lastDidUKnow.type, this.state.lastDidUKnow.subtype)}
+                    {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title,this.state.lastRecipe.title_es, getTextWithoutHtmlTags(this.state.lastRecipe.content),getTextWithoutHtmlTags(this.state.lastRecipe.content_es), this.state.lastRecipe.type,this.state.lastRecipe.subtype)}
                     {this.cardElmentList(this.state.lastFeature)}
 
 

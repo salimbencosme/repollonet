@@ -3,7 +3,7 @@ import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
 import { getPostAllPost, getPostInfo } from '../common/ApiServices';
-import { encryptKey, beautyString } from '../common/Utils';
+import { encryptKey, beautyString,getTextWithoutHtmlTags } from '../common/Utils';
 import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
@@ -83,7 +83,7 @@ class Post extends Component {
                        
                         <div class="container-two">
                             <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), (manageLanguage(this.state.language,title_es,title)).length)}</b></h4>
-                            <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es.replace(/<[^>]*>/g, ''),content.replace(/<[^>]*>/g, '')), 130) + '...'}</p>
+                            <p class="white-color">{beautyString(manageLanguage(this.state.language,getTextWithoutHtmlTags(content_es),getTextWithoutHtmlTags(content)), 130) + '...'}</p>
                         </div>
                         <div class="pull-left">
                             <img className="img-post-icon" src={this.getImageType(type, subtype)} width="68px" alt="" />

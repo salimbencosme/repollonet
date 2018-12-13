@@ -75,4 +75,14 @@ export function getSelectedLanguage() {
     return localStorage.getItem('language-storage');
 }
 
+
+
+export function getTextWithoutHtmlTags(textParam){
+  if(textParam != undefined){
+    return textParam.replace(/<[^>]*>/g, '');
+  }else{
+    return textParam;
+  }
+}
+
 export default function Utils() { };
