@@ -87,7 +87,7 @@ class App extends Component {
 
         <Grid>
           <Row className="show-grid">
-            <Col xs={6} md={3}>
+            <Col xs={12} md={3}>
               <div class="card" style={cardStyle}>
                 <center>
                   <img class="card-img-top" src={tips} style={imgStyle} />
@@ -100,7 +100,7 @@ class App extends Component {
               </div>
             </Col>
 
-            <Col xs={6} md={3}>
+            <Col xs={12} md={3}>
               <div class="card" style={cardStyle}>
                 <center>
                   <img class="card-img-top" src={diduknow} style={imgStyle} />
@@ -113,7 +113,7 @@ class App extends Component {
               </div>
             </Col>
 
-            <Col xs={6} md={3}>
+            <Col xs={12} md={3}>
               <div class="card" style={cardStyle}>
                 <center>
                   <img class="card-img-top" src={recipes} style={imgStyle} />
@@ -127,7 +127,7 @@ class App extends Component {
             </Col>
 
 
-            <Col xs={6} md={3}>
+            <Col xs={12} md={3}>
               <div class="card" style={cardStyle}>
                 <center>
                   <img class="card-img-top" src={features} style={imgStyle} />

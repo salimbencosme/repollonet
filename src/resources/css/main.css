@@ -550,3 +550,15 @@ textarea {
     padding-bottom: 6px;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #eceff1;
+}
+
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #000;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #f3f2f2;
+}
