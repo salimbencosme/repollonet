@@ -523,7 +523,8 @@ textarea {
 
 .img-welcome {
     width: 100%;
-    padding: 50px;
+    padding-top: 54px;
+    padding-bottom: 50px;
 }
 
 .img-small {

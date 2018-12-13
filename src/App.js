@@ -81,9 +81,10 @@ class App extends Component {
   render() {
     return (
       <div class="div-container-scroll">
-        <Link to="/post/all">
-          <img className="img-welcome" src={this.state.language === 'english' ? welcome : bienvenido} />
-        </Link>
+        
+          <Link to="/post/all">
+            <img className="img-welcome" src={this.state.language === 'english' ? welcome : bienvenido} />
+          </Link>
 
         <Grid>
           <Row className="show-grid">
@@ -144,16 +145,16 @@ class App extends Component {
           <Row>
 
             <Col xs={12} md={12}>
-            <center>
-              <div class="card" style={cardStyle}>
-                <center>
-                  <img class="card-img-top" src={mark} style={imgStyle} />
-                  <div class="card-body">
-                    <p class="card-text">{manageLanguage(this.state.language, 'Este proyecto tiene como fin educar para mejorar la salud por medio de la comida.', 'This project aims to educate to improve health through food.')}</p>
-                    <Link className="btn btn-primary" to="/about" style={aboutButton} >{manageLanguage(this.state.language, 'Conocer más', 'Know more')}</Link>
-                  </div>
-                </center>
-              </div>
+              <center>
+                <div class="card" style={cardStyle}>
+                  <center>
+                    <img class="card-img-top" src={mark} style={imgStyle} />
+                    <div class="card-body">
+                      <p class="card-text">{manageLanguage(this.state.language, 'Este proyecto tiene como fin educar para mejorar la salud por medio de la comida.', 'This project aims to educate to improve health through food.')}</p>
+                      <Link className="btn btn-primary" to="/about" style={aboutButton} >{manageLanguage(this.state.language, 'Conocer más', 'Know more')}</Link>
+                    </div>
+                  </center>
+                </div>
               </center>
             </Col>
 
@@ -162,21 +163,21 @@ class App extends Component {
         </Grid>
 
 
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
 
       </div>
