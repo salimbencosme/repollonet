@@ -39,9 +39,9 @@ class Donate extends Component {
         if (this.state != undefined) {
             let contArray = this.state.cont + 1;
 
-            if(contArray === 6){
-                this.setState({ cont: 0});
-            }else{
+            if (contArray === 6) {
+                this.setState({ cont: 0 });
+            } else {
                 this.setState({ cont: contArray });
             }
         }
@@ -97,6 +97,17 @@ class Donate extends Component {
                         <img alt="" border="0" src="https://www.paypal.com/en_DO/i/scr/pixel.gif" width="1" height="1" />
                     </form>
                 </center>
+
+                <br />
+
+                <br />
+                <br />
+
+                <br />
+                <br />
+
+                <br />
+                <br />
             </div>
         );
     }

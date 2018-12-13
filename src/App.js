@@ -81,64 +81,68 @@ class App extends Component {
   render() {
     return (
       <div class="div-container-scroll">
-        
-          <Link to="/post/all">
-            <img className="img-welcome" src={this.state.language === 'english' ? welcome : bienvenido} />
-          </Link>
+
+        <Link to="/post/all">
+          <img className="img-welcome" src={this.state.language === 'english' ? welcome : bienvenido} />
+        </Link>
+
 
         <Grid>
           <Row className="show-grid">
             <Col xs={12} md={3}>
-              <div class="card" style={cardStyle}>
-                <center>
+              <center>
+                <div class="card" style={cardStyle}>
+
                   <img class="card-img-top" src={tips} style={imgStyle} />
                   <div class="card-body">
                     <h4 class="card-title" style={titleCard}>{manageLanguage(this.state.language, 'Consejos', 'Tips')}</h4>
                     <p class="card-text">{manageLanguage(this.state.language, 'Recomendaciones que puedes utilizar a la hora de la cocina.', 'Recommendations that you can use when cooking.')}</p>
                     <Link className="btn btn-primary" to="/post/tips" style={tipsButton} >{manageLanguage(this.state.language, 'Ver todos', 'See all')}</Link>
                   </div>
-                </center>
-              </div>
+                </div>
+              </center>
             </Col>
 
             <Col xs={12} md={3}>
-              <div class="card" style={cardStyle}>
-                <center>
+              <center>
+                <div class="card" style={cardStyle}>
+
                   <img class="card-img-top" src={diduknow} style={imgStyle} />
                   <div class="card-body">
                     <h4 class="card-title" style={titleCard}>{manageLanguage(this.state.language, 'Sabias que?', 'Did you know?')}</h4>
                     <p class="card-text">{manageLanguage(this.state.language, 'Explora las curiosidades, historias y relatos de la gastronomía.', 'Explore the curiosities, stories and stories of gastronomy.')}</p>
                     <Link className="btn btn-primary" to="/post/didyouknow" style={didYouKnowButton} >{manageLanguage(this.state.language, 'Ver todos', 'See all')}</Link>
                   </div>
-                </center>
-              </div>
+
+                </div>
+              </center>
             </Col>
 
             <Col xs={12} md={3}>
-              <div class="card" style={cardStyle}>
-                <center>
+              <center>
+                <div class="card" style={cardStyle}>
                   <img class="card-img-top" src={recipes} style={imgStyle} />
                   <div class="card-body">
                     <h4 class="card-title" style={titleCard}>{manageLanguage(this.state.language, 'Recetas', 'Recipes')}</h4>
                     <p class="card-text">{manageLanguage(this.state.language, 'Conoce los pasos a seguir para producir un determinado plato, es decir, qué ingredientes incluye una comida y la forma en que ésta debe ser preparada.', 'know the steps to follow to produce a particular dish, that is, what ingredients a meal includes and how it should be prepared.')}</p>
                     <Link className="btn btn-primary" to="/post/recipe" style={recipeButton} >{manageLanguage(this.state.language, 'Ver todos', 'See all')}</Link>
                   </div>
-                </center>
-              </div>
+                </div>
+              </center>
             </Col>
 
 
             <Col xs={12} md={3}>
-              <div class="card" style={cardStyle}>
-                <center>
+              <center>
+                <div class="card" style={cardStyle}>
                   <img class="card-img-top" src={features} style={imgStyle} />
                   <div class="card-body">
                     <h4 class="card-title" style={titleCard}>{manageLanguage(this.state.language, 'Nuevas funcionalidades', 'New features')}</h4>
                     <p class="card-text">{manageLanguage(this.state.language, 'Descubre cuáles son las últimas novedades de Repollo.net', 'Discover the latest news from Repollo.net')}</p>
                     <Link className="btn btn-primary" to="/post/information" style={featureButton} >{manageLanguage(this.state.language, 'Ver todos', 'See all')}</Link>
                   </div>
-                </center>
-              </div>
+                </div>
+              </center>
             </Col>
           </Row>
 

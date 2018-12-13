@@ -454,7 +454,7 @@ ul {
     color: black;
 }
 
-.p-text{
+.p-text {
     font-size: 19px;
 }
 
@@ -555,11 +555,14 @@ textarea {
     background-color: #eceff1;
 }
 
-
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: #000;
 }
 
 .navbar-default .navbar-toggle {
     border-color: #f3f2f2;
+}
+
+#custom-card {
+    padding: 0.5%;
 }
