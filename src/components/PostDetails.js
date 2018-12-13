@@ -10,6 +10,7 @@ import features from '../resources/img/feature.png';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
 import back from '../resources/img/back.png';
 import Markdown from 'react-markdown';
+import { Link } from "react-router-dom";
 
 class PostDetails extends Component {
 
@@ -17,8 +18,11 @@ class PostDetails extends Component {
         super(props);
         this.state = {
             post: {},
-            language: 'english'
+            language: 'english',
+            infoType: ''
         }
+
+        this.goBack = this.goBack.bind(this);
     }
 
     handlerApiLogic(typeContent, id) {
@@ -34,12 +38,12 @@ class PostDetails extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ language: getSelectedLanguage() });
+        this.setState({ language: getSelectedLanguage(), infoType: nextProps.match.params.typecontent });
         this.handlerApiLogic(nextProps.match.params.typecontent, nextProps.match.params.id);
     }
 
     componentDidMount() {
-        this.setState({ language: getSelectedLanguage() });
+        this.setState({ language: getSelectedLanguage(), infoType: this.props.match.params.typecontent });
         this.handlerApiLogic(this.props.match.params.typecontent, this.props.match.params.id);
     }
 
@@ -118,9 +122,11 @@ class PostDetails extends Component {
         return (
             <Grid>
                 <Row className="show-grid">
-                <div class="pull-left">
-                <img className="icon-back" src={back} width="68px" alt="" />
-                </div>
+                    <div class="pull-right">
+                        <Link to={this.goBack()}>
+                            <img className="icon-back" src={back} width="68px" alt="" />
+                        </Link>
+                    </div>
                     <br />
                     <br />
                     <Col xs={12} md={12}>
@@ -162,6 +168,26 @@ class PostDetails extends Component {
 
         );
     }
+
+
+    goBack() {
+        switch (this.state.infoType) {
+            case 'recipe':
+                return '/post/recipe';
+            case 'didyouknow':
+                return '/post/didyouknow';
+
+            case 'tips':
+                return '/post/tips';
+
+            case 'information':
+                return '/post/information';
+            
+            default:
+                return '/';
+        }
+    }
+
 
     render() {
         return (
