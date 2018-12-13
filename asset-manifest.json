@@ -13,7 +13,7 @@
   "static/media/feature.png": "/static/media/feature.a10b6e29.png",
   "static/media/recipes-drinks.png": "/static/media/recipes-drinks.2942bd3f.png",
   "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg",
-  "static/media/notifications.css": "/static/media/notification.651771e1.woff",
+  "static/media/notifications.css": "/static/media/notification.5bee74ca.svg",
   "static/media/repollo-welcome.png": "/static/media/repollo-welcome.1a2d2ae9.png",
   "static/media/repollo-bienvenido.png": "/static/media/repollo-bienvenido.2754154d.png",
   "static/media/donation.png": "/static/media/donation.399d66fc.png",
@@ -23,6 +23,6 @@
   "static/css/main.5a9fa380.chunk.css.map": "/static/css/main.5a9fa380.chunk.css.map",
   "static/css/1.66f6fdf7.chunk.css.map": "/static/css/1.66f6fdf7.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.affab84c57c54e36ce3d94e2c14785c0.js": "/precache-manifest.affab84c57c54e36ce3d94e2c14785c0.js",
+  "precache-manifest.391b540adefd689fbd1a5c5475f3bc77.js": "/precache-manifest.391b540adefd689fbd1a5c5475f3bc77.js",
   "service-worker.js": "/service-worker.js"
 }
