@@ -76,14 +76,14 @@ class Post extends Component {
         let mainUrl = "/images/" + imageName;
         return (
             
-            <Col xs={4} md={4}>
+            <Col xs={12} md={4}>
                 <Link to={'/details/' + type + '/' + encryptKey(id)}>
                     <div class={this.determineColorCard(type)}>
                         <img class="img-card" src={mainUrl} alt="Avatar" />
                        
                         <div class="container-two">
                             <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), (manageLanguage(this.state.language,title_es,title)).length)}</b></h4>
-                            <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es.replace(/<[^>]*>/g, ''),content.replace(/<[^>]*>/g, '')), 80) + '...'}</p>
+                            <p class="white-color">{beautyString(manageLanguage(this.state.language,content_es.replace(/<[^>]*>/g, ''),content.replace(/<[^>]*>/g, '')), 130) + '...'}</p>
                         </div>
                         <div class="pull-left">
                             <img className="img-post-icon" src={this.getImageType(type, subtype)} width="68px" alt="" />
@@ -138,6 +138,12 @@ class Post extends Component {
 
                 <br />
 
+                <br />
+                <br />
+                
+                <br />
+                <br />
+                
                 <br />
                 <br />
 

@@ -241,6 +241,7 @@ ul#menu li {
     transition: 0.3s;
     width: 95%;
     color: white;
+    height: 350px;
 }
 
 .purple-card {
