@@ -4,6 +4,13 @@ import 'react-notifications/lib/notifications.css';
 import { saveContact } from '../common/ApiServices';
 import { currentDateWithFormat, manageLanguage, getSelectedLanguage } from '../common/Utils';
 import themeHandler from '../common/ThemeHandler';
+import send from '../resources/img/send.png';
+
+var sendStyle={
+    width: '40px',
+    float: 'left',
+    margin: '4px'
+}
 
 class Contact extends Component {
 
@@ -74,17 +81,24 @@ class Contact extends Component {
 
         return (
             <div class="div-container-scroll">
+
                 <div class="container">
 
                     <div class="row justify-content-center">
+
                         <div class="col-12 col-md-12 col-lg-12 pb-5">
 
                             <form onSubmit={this.handleSubmit}>
+
+                                <div class="pull-left">
+                                    <h2 style={{'margin-left': '0px'}} class="titleDetails">{manageLanguage(this.state.language, 'CONTÁCTENOS', 'CONTACT US')}</h2>
+                                </div>
+                                <br />
                                 <div class="card-contact border-primary rounded-0">
                                     <div class="card-header p-0">
                                         <div class="bg-info text-white text-center py-2">
-                                            <h3><i class="fa fa-envelope"></i> {manageLanguage(this.state.language, 'Contáctenos', 'Contact Us')}</h3>
-                                            <p class="m-0 color-white">{manageLanguage(this.state.language, 'Escríbenos, estamos ansiosos por escucharte.', 'Write us, we are eager to hear you')}</p>
+                                            <h3><i class="fa fa-envelope"></i> <img style={sendStyle} src={send} /></h3>
+                                            <p class="m-0 color-white" style={{'font-size': '15px'}}>{manageLanguage(this.state.language, 'Escríbenos, estamos ansiosos por escucharte.', 'Write us, we are eager to hear you')}</p>
                                         </div>
                                     </div>
 

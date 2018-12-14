@@ -73,9 +73,11 @@ class Donate extends Component {
         return (
 
             <div class="div-container-scroll">
+                <div class="pull-left">
+                    <h2 id="titlePost" class="titleDetails">{manageLanguage(this.state.language, 'DONAR', 'DONATE')}</h2>
+                </div>
                 <br />
                 <br />
-
                 <center>
 
                     <img className="img-small" src={this.changePic()} />

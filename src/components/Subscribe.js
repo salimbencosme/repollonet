@@ -4,6 +4,14 @@ import 'react-notifications/lib/notifications.css';
 import { saveSubscribe } from '../common/ApiServices';
 import { currentDateWithFormat, manageLanguage, getSelectedLanguage } from '../common/Utils';
 import themeHandler from '../common/ThemeHandler';
+import hands from '../resources/img/hand.svg';
+
+var hansStyle={
+    width: '50px',
+    float: 'left',
+    position: 'relative',
+    top: '-13px'
+}
 
 class Subscribe extends Component {
 
@@ -79,7 +87,12 @@ class Subscribe extends Component {
 
     render() {
         return (
-            <div class="div-container-scroll"> 
+            <div class="div-container-scroll">
+                <div class="pull-left">
+                    <h2 id="titlePost" class="titleDetails">{manageLanguage(this.state.language, 'SUSCRIBIR', 'SUBSCRIBE')}</h2>
+                </div>
+                <br />
+                <br />
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-12 col-lg-12 pb-5">
@@ -88,11 +101,11 @@ class Subscribe extends Component {
                                 <div class="card-contact border-primary rounded-0">
                                     <div class="card-header p-0">
                                         <div id="custom-card" class="bg-info text-white text-center py-2">
-                                            <h3><i class="fa fa-envelope"></i> {manageLanguage(this.state.language, 'Suscribir', 'Subscribe')}</h3>
-                                            <p class="m-0 color-white">{manageLanguage(this.state.language, 'Queremos informarle sobre el nuevo contenido y los nuevos cambios en la aplicación.', 'We want to inform you about the new content and the new changes in the application.')}</p>
+                                            <h3><i class="fa fa-envelope"></i> <img style={hansStyle} src={hands} /></h3>
+                                            <p class="m-0 color-white" style={{'font-size': '15px'}}>{manageLanguage(this.state.language, 'Queremos informarle sobre el nuevo contenido y los nuevos cambios en la aplicación.', 'We want to inform you about the new content and the new changes in the application.')}</p>
                                         </div>
                                     </div>
-
+                                        <br/>
 
                                     <div class="card-body p-3">
 

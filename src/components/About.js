@@ -99,12 +99,11 @@ class About extends Component {
         return (
             <div>
                 <div class="div-container-scroll">
+                    <div class="pull-left">
+                        <h2 id="titlePost" class="titleDetails">{manageLanguage(this.state.language, 'NOSOSTROS', 'ABOUT')}</h2>
+                    </div>
                     <br />
                     <br />
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">{manageLanguage(this.state.language, 'NOSOSTROS', 'ABOUT')}</li>
-                    </ol>
-
                     <Grid>
                         <Row className="show-grid">
                             <Col xs={12} md={12}>
