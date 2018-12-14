@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.b079b3bc.chunk.css",
-  "main.js": "/static/js/main.1118707b.chunk.js",
-  "main.js.map": "/static/js/main.1118707b.chunk.js.map",
+  "main.js": "/static/js/main.5dfa22ff.chunk.js",
+  "main.js.map": "/static/js/main.5dfa22ff.chunk.js.map",
   "static/css/1.66746861.chunk.css": "/static/css/1.66746861.chunk.css",
   "static/js/1.d2ac279e.chunk.js": "/static/js/1.d2ac279e.chunk.js",
   "static/js/1.d2ac279e.chunk.js.map": "/static/js/1.d2ac279e.chunk.js.map",
@@ -21,9 +21,9 @@
   "static/media/donation-red.png": "/static/media/donation-red.82e429df.png",
   "static/media/questions.png": "/static/media/questions.b316369a.png",
   "static/media/cancel.png": "/static/media/cancel.81288256.png",
-  "static/css/main.b079b3bc.chunk.css.map": "/static/css/main.b079b3bc.chunk.css.map",
   "static/css/1.66746861.chunk.css.map": "/static/css/1.66746861.chunk.css.map",
+  "static/css/main.b079b3bc.chunk.css.map": "/static/css/main.b079b3bc.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.fdb9f6f2dd97bbf8af19b7a1bb3366a1.js": "/precache-manifest.fdb9f6f2dd97bbf8af19b7a1bb3366a1.js",
+  "precache-manifest.7e61e21852300475699ce145d2e6c2f5.js": "/precache-manifest.7e61e21852300475699ce145d2e6c2f5.js",
   "service-worker.js": "/service-worker.js"
 }
