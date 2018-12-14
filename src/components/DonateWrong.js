@@ -34,11 +34,19 @@ class DonateWrong extends Component{
 
     render(){
         return(
-            <div>
+            <div class="div-container-scroll">
                 <center>
                 <img className="img-small" src={img} />
                 <label style={label}>{manageLanguage(this.state.language,'Lamentamos que haya cancelado su donación, si sucedió algo o si tiene algo que comunicar, no dude en ponerse en contacto con nosotros.','We regret that you have canceled your donation, if something happened or you have something to communicate, please do not hesitate to contact us.')}  <Link style={linkStyle} to="contact">{manageLanguage(this.state.language,'Haga clic aquí para decirnos','Click here to tell us')}</Link></label>
                 </center>
+                <br />
+                <br />
+
+                <br />
+                <br />
+
+                <br />
+                <br />
             </div>
         );
     }

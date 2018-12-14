@@ -3,7 +3,7 @@ import img from '../resources/img/thankyou.png';
 import imgES from '../resources/img/thankyou-es.png';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
-import {getSelectedLanguage } from '../common/Utils';
+import { getSelectedLanguage } from '../common/Utils';
 
 class DonateThanks extends Component {
 
@@ -25,11 +25,22 @@ class DonateThanks extends Component {
 
     render() {
         return (
-            <Link to="/post/all">
-                <center>
-                    <img style={{ width: '600px'}} className="img-welcome" src={this.state.language === 'english' ?  img : imgES} />
-                </center>
-            </Link>
+            <div class="div-container-scroll">
+                <Link to="/post/all">
+                    <center>
+                        <img style={{ width: '80%' }} className="img-welcome" src={this.state.language === 'english' ? img : imgES} />
+                    </center>
+                </Link>
+                
+                <br />
+                <br />
+
+                <br />
+                <br />
+
+                <br />
+                <br />
+            </div>
         );
     }
 }
