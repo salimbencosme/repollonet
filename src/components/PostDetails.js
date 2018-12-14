@@ -19,7 +19,8 @@ class PostDetails extends Component {
         this.state = {
             post: {},
             language: 'english',
-            infoType: ''
+            infoType: '',
+            mainTitle: ''
         }
 
         this.goBack = this.goBack.bind(this);
@@ -40,11 +41,13 @@ class PostDetails extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ language: getSelectedLanguage(), infoType: nextProps.match.params.typecontent });
         this.handlerApiLogic(nextProps.match.params.typecontent, nextProps.match.params.id);
+        this.generateTitle(nextProps.match.params.typecontent, getSelectedLanguage());
     }
 
     componentDidMount() {
         this.setState({ language: getSelectedLanguage(), infoType: this.props.match.params.typecontent });
         this.handlerApiLogic(this.props.match.params.typecontent, this.props.match.params.id);
+        this.generateTitle(this.props.match.params.typecontent, getSelectedLanguage());
     }
 
     getImageType(type, subtype) {
@@ -127,6 +130,9 @@ class PostDetails extends Component {
                             <img className="icon-back" src={back} width="68px" alt="" />
                         </Link>
                     </div>
+                    <div class="pull-left">
+                        <h2 class="titleDetails">{this.state.mainTitle}</h2>
+                    </div>
                     <br />
                     <br />
                     <Col xs={12} md={12}>
@@ -173,6 +179,7 @@ class PostDetails extends Component {
     goBack() {
         switch (this.state.infoType) {
             case 'recipe':
+
                 return '/post/recipe';
             case 'didyouknow':
                 return '/post/didyouknow';
@@ -182,12 +189,39 @@ class PostDetails extends Component {
 
             case 'information':
                 return '/post/information';
-            
+
             default:
                 return '/';
         }
     }
 
+
+    generateTitle(infoTypeParam, language) {
+
+        let titleTemp = "";
+
+        switch (infoTypeParam) {
+            case 'recipe':
+                titleTemp = manageLanguage(language, "RECETA", "RECIPE");
+                break;
+            case 'didyouknow':
+                titleTemp = manageLanguage(language, "SABIAS QUE?", "DID YOU KNOW?");
+                break;
+            case 'tips':
+                titleTemp = manageLanguage(language, "CONSEJOS", "TIPS");
+                break;
+            case 'information':
+                titleTemp = manageLanguage(language, "NUEVA FUNCIONALIDAD", "NEW FEATURE");
+                break;
+            case 'all':
+                titleTemp = manageLanguage(language, "VER TODOS", "READ ALL");
+                break;
+            default:
+                titleTemp = "";
+        }
+
+        this.setState({ mainTitle: titleTemp });
+    }
 
     render() {
         return (

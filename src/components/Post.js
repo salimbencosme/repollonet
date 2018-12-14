@@ -3,13 +3,13 @@ import { Grid, Row, Col, Pager } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import themeHandler from '../common/ThemeHandler';
 import { getPostAllPost, getPostInfo } from '../common/ApiServices';
-import { encryptKey, beautyString,getTextWithoutHtmlTags } from '../common/Utils';
+import { encryptKey, beautyString, getTextWithoutHtmlTags } from '../common/Utils';
 import tips from '../resources/img/tips.png';
 import diduknow from '../resources/img/questions.png';
 import recipes from '../resources/img/recipes.png';
 import features from '../resources/img/feature.png';
 import recipesdrinks from '../resources/img/recipes-drinks.png';
-import  {manageLanguage,getSelectedLanguage} from '../common/Utils';
+import { manageLanguage, getSelectedLanguage } from '../common/Utils';
 
 class Post extends Component {
 
@@ -17,7 +17,8 @@ class Post extends Component {
         super(props);
         this.state = {
             posts: [],
-            language:'english'
+            language: 'english',
+            mainTitle: ''
         }
     }
 
@@ -43,13 +44,15 @@ class Post extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({language:getSelectedLanguage()});
+        this.setState({ language: getSelectedLanguage() });
         this.handlerApiLogic(nextProps.match.params.typecontent);
+        this.generateTitle(nextProps.match.params.typecontent, getSelectedLanguage());
     }
 
     componentDidMount() {
-        this.setState({language:getSelectedLanguage()});
+        this.setState({ language: getSelectedLanguage() });
         this.handlerApiLogic(this.props.match.params.typecontent);
+        this.generateTitle(this.props.match.params.typecontent, getSelectedLanguage());
     }
 
     getImageType(type, subtype) {
@@ -72,31 +75,31 @@ class Post extends Component {
         }
     }
 
-    createCard(type, imageName, title,title_es, content,content_es, id, subtype) {
+    createCard(type, imageName, title, title_es, content, content_es, id, subtype) {
         let mainUrl = "/images/" + imageName;
         return (
-            
+
             <Col xs={12} md={4}>
                 <Link to={'/details/' + type + '/' + encryptKey(id)}>
                     <div class={this.determineColorCard(type)}>
                         <img class="img-card" src={mainUrl} alt="Avatar" />
-                       
+
                         <div class="container-two">
-                            <h4><b>{beautyString(manageLanguage(this.state.language,title_es,title), (manageLanguage(this.state.language,title_es,title)).length)}</b></h4>
-                            <p class="white-color">{beautyString(manageLanguage(this.state.language,getTextWithoutHtmlTags(content_es),getTextWithoutHtmlTags(content)), 130) + '...'}</p>
+                            <h4><b>{beautyString(manageLanguage(this.state.language, title_es, title), (manageLanguage(this.state.language, title_es, title)).length)}</b></h4>
+                            <p class="white-color">{beautyString(manageLanguage(this.state.language, getTextWithoutHtmlTags(content_es), getTextWithoutHtmlTags(content)), 100) + '...'}</p>
                         </div>
                         <div class="pull-left">
                             <img className="img-post-icon" src={this.getImageType(type, subtype)} width="68px" alt="" />
                         </div>
-                       
+
                     </div>
 
 
                 </Link>
                 <br />
-               
+
             </Col>
-     
+
         );
     }
 
@@ -120,15 +123,49 @@ class Post extends Component {
         console.log("ENTRO A CREATECARDLIST()");
         let list = [];
         this.state.posts.forEach(element => {
-            list.push(this.createCard(element.type, element.pic, element.title, element.title_es, element.content,element.content_es, element.id, element.subtype));
+            list.push(this.createCard(element.type, element.pic, element.title, element.title_es, element.content, element.content_es, element.id, element.subtype));
         });
         return list;
     }
 
+
+    generateTitle(infoTypeParam, language) {
+
+        let titleTemp = "";
+
+        switch (infoTypeParam) {
+            case 'recipe':
+                titleTemp = manageLanguage(language, "RECETAS", "RECIPES");
+                break;
+            case 'didyouknow':
+                titleTemp = manageLanguage(language, "SABIAS QUE?", "DID YOU KNOW?");
+                break;
+            case 'tips':
+                titleTemp = manageLanguage(language, "CONSEJOS", "TIPS");
+                break;
+            case 'information':
+                titleTemp = manageLanguage(language, "NUEVAS FUNCIONALIDADES", "NEW FEATURES");
+                break;
+            case 'all':
+                titleTemp = manageLanguage(language, "VER TODOS", "READ ALL");
+                break;
+            default:
+                titleTemp = "";
+        }
+
+        this.setState({ mainTitle: titleTemp });
+    }
+
+
     render() {
         return (
             <div class="div-container-scroll">
+                <div class="pull-left">
+                    <h2 id="titlePost" class="titleDetails">{this.state.mainTitle}</h2>
+                </div>
                 <br />
+                <br />
+                
                 <Grid>
                     <Row className="show-grid">
                         {this.createCardList()}
@@ -140,10 +177,10 @@ class Post extends Component {
 
                 <br />
                 <br />
-                
+
                 <br />
                 <br />
-                
+
                 <br />
                 <br />
 

@@ -574,3 +574,20 @@ textarea {
     z-index: 10000000000000000000000000000000000;
     width: 30px;
 }
+
+.titleDetails{
+    font-weight: bold;
+    margin-left: 12px;
+    color: var(--theme-primary-color);
+    background: white;
+    border-radius: 2px;
+    padding: 3px;
+    text-shadow: 2px 2px #eceff1;
+    margin-top: 0px;
+    font-size: 22px;
+}
+
+
+#titlePost{
+    margin-left: 18px !important;
+}
