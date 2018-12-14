@@ -5,7 +5,7 @@ import App from './App';
 import Main from './containers/Main';
 import Post from './components/Post';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch,HashRouter } from "react-router-dom";
 import PostDetails from '../src/components/PostDetails';
 import AppDefault from './AppDefault';
 import About from './components/About';
@@ -18,7 +18,7 @@ import './resources/css/main.css';
 ReactDOM.render(
 
 
-    <Router  basename={process.env.PUBLIC_URL}>
+    <HashRouter  basename={process.env.PUBLIC_URL}>
         <Main>
             <Switch>
                 <Route exact path="/" component={App} />
@@ -33,7 +33,7 @@ ReactDOM.render(
                 <Route name="wrong-url" component={AppDefault} />
             </Switch>
         </Main>
-    </Router>
+    </HashRouter>
 
 
     , document.getElementById('root'));
