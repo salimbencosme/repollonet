@@ -25,7 +25,7 @@ ReactDOM.render(
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/subscribe" component={Subscribe} />
-            <Route path="/donate" component={Donate} />
+            <Route path={`${process.env.PUBLIC_URL}/donate`} component={Donate} />
             <Route path="/donatethanks" component={DonateThanks} />
             <Route path="/donatewrong" component={DonateWrong} />
             <Route name="wrong-url" component={AppDefault} />
