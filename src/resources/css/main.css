@@ -336,7 +336,7 @@ ul#menu li {
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background: black;
+    background: #eceff1;
 }
 
 /* Handle on hover */
