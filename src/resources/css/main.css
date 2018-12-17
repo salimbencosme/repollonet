@@ -330,18 +330,21 @@ ul#menu li {
 
 ::-webkit-scrollbar-track {
     background: #eceff1;
+  
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background: #eceff1;
+    background: black;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #eceff1;
+    /*background: #eceff1;*/
+    /*background:var(--theme-primary-color);*/
+    background: var(--theme-primary-color);
 }
 
 /*END SCROLL BAR STYLE*/
