@@ -165,7 +165,7 @@ class Post extends Component {
                 </div>
                 <br />
                 <br />
-                
+
                 <Grid>
                     <Row className="show-grid">
                         {this.createCardList()}
@@ -173,6 +173,7 @@ class Post extends Component {
 
                 </Grid>
 
+               
                 <br />
 
                 <br />
