@@ -89,7 +89,7 @@ class App extends Component {
 
         <Grid>
           <Row className="show-grid">
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <center>
                 <div class="card" style={cardStyle}>
 
@@ -103,7 +103,7 @@ class App extends Component {
               </center>
             </Col>
 
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <center>
                 <div class="card" style={cardStyle}>
 
@@ -118,7 +118,7 @@ class App extends Component {
               </center>
             </Col>
 
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <center>
                 <div class="card" style={cardStyle}>
                   <img class="card-img-top" src={recipes} style={imgStyle} />
@@ -132,7 +132,7 @@ class App extends Component {
             </Col>
 
 
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <center>
                 <div class="card" style={cardStyle}>
                   <img class="card-img-top" src={features} style={imgStyle} />
@@ -144,11 +144,8 @@ class App extends Component {
                 </div>
               </center>
             </Col>
-          </Row>
 
-          <Row>
-
-            <Col xs={12} md={12}>
+            <Col xs={12} md={4}>
               <center>
                 <div class="card" style={cardStyle}>
                   <center>
@@ -161,8 +158,9 @@ class App extends Component {
                 </div>
               </center>
             </Col>
-
           </Row>
+
+
 
         </Grid>
 
