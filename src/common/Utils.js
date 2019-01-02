@@ -62,26 +62,34 @@ export function beautyString(value, quantity) {
 }
 
 
-export function manageLanguage(language,spanishValue, englishValue) {
+export function manageLanguage(language, spanishValue, englishValue) {
   switch (language) {
-      case 'spanish':
-          return spanishValue;
-      case 'english':
-          return englishValue;
+    case 'spanish':
+      return spanishValue;
+    case 'english':
+      return englishValue;
   }
 }
 
 export function getSelectedLanguage() {
-    return localStorage.getItem('language-storage');
+  return localStorage.getItem('language-storage');
 }
 
 
 
-export function getTextWithoutHtmlTags(textParam){
-  if(textParam != undefined){
+export function getTextWithoutHtmlTags(textParam) {
+  if (textParam != undefined) {
     return textParam.replace(/<[^>]*>/g, '');
-  }else{
+  } else {
     return textParam;
+  }
+}
+
+export function closeMenuAfterCliked() {
+  console.log("ENTRO");
+  let menuOption = document.querySelector('.navbar-toggle');
+  if (menuOption != undefined && menuOption != null) {
+    menuOption.click();
   }
 }
 
