@@ -323,19 +323,19 @@ ul#menu li {
 /* width */
 
 ::-webkit-scrollbar {
-    width: 3px;
+    width: 5px;
 }
 
 /* Track */
 
 ::-webkit-scrollbar-track {
-    background: #eceff1;
+    background: #a9a9a957;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background: #eceff1;
+    background:var(--theme-primary-color);
 }
 
 /* Handle on hover */
@@ -343,7 +343,7 @@ ul#menu li {
 ::-webkit-scrollbar-thumb:hover {
     /*background: #eceff1;*/
     /*background:var(--theme-primary-color);*/
-    background: var(--theme-primary-color);
+    background: black;
 }
 
 /*END SCROLL BAR STYLE*/
@@ -630,6 +630,22 @@ textarea {
     .news-panel {
         display: none;
     }
+
+    ::-webkit-scrollbar-track {
+        background: #eceff1;
+    }
+    
+    /* Handle */
+    
+    ::-webkit-scrollbar-thumb {
+        background:#eceff1;
+    }
+    
+    /* Handle on hover */
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #eceff1;
+    }
 }
 
 /* 
@@ -640,5 +656,21 @@ textarea {
 @media (min-width: 320px) and (max-width: 480px) {
     .news-panel {
         display: none;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #eceff1;
+    }
+    
+    /* Handle */
+    
+    ::-webkit-scrollbar-thumb {
+        background:#eceff1;
+    }
+    
+    /* Handle on hover */
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #eceff1;
     }
 }

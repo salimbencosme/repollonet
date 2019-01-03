@@ -80,7 +80,7 @@ class App extends Component {
 
   render() {
     return (
-      <div class="div-container-scroll">
+      <div style={{'height':'200vh'}} class="div-container-scroll">
 
         <Link to="/post/all">
           <img className="img-welcome" src={this.state.language === 'english' ? welcome : bienvenido} />

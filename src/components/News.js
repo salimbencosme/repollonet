@@ -218,7 +218,7 @@ class News extends Component {
                     {this.cardElement(this.state.lastRecipe.id, this.state.lastRecipe.title, this.state.lastRecipe.title_es, getTextWithoutHtmlTags(this.state.lastRecipe.content), getTextWithoutHtmlTags(this.state.lastRecipe.content_es), this.state.lastRecipe.type, this.state.lastRecipe.subtype)}
                     {this.cardElmentList(this.state.lastFeature)}
 
-                    <Link className="btn btn-primary" to="/about" >
+                    <Link  to="/about" >
                         <img id="img-hands" className="icon-news" src={mark} width="68px" alt="" />
                     </Link>
 
